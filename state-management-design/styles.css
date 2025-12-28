@@ -1,0 +1,42 @@
+.main__wrapper {
+  width: 50vw;
+  margin: 0 auto;
+}
+.article__title {
+  font-size: calc(var(--font-size) * 2);
+  font-family: var(--main-font);
+  padding: 5rem 0 2rem;
+}
+.section__body,
+.list__wrapper {
+  font-family: var(--sec-font);
+}
+.sub__title {
+  font-family: var(--main-font);
+}
+.article__body {
+  font-family: var(--sec-font);
+  line-height: 1.7rem;
+  font-weight: 300;
+}
+.pre__wrapper {
+  height: fit-content;
+  background: var(--black) !important;
+}
+.language-javascript {
+  text-shadow: none !important;
+}
+
+/* Tablet and below */
+@media (width <= 768px) {
+  .main__wrapper {
+    width: 90vw;
+  }
+}
+
+/* Monitor and above */
+@media (width >= 1920px) {
+  .main__wrapper {
+    width: 25vw;
+  }
+}

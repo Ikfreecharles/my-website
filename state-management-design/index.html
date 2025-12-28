@@ -1,0 +1,152 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>State management design</title>
+    <meta
+      name="description"
+      content="Charles Ikulayo is a seasoned Software engineer with 7 years working experience from design to development. Now I'm marching forward into management and architecting as a Solutions Architect to design and develop robust software designs and solutions."
+    />
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="/state-management-design/styles.css" />
+    <link rel="stylesheet" href="prism.css" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="header__wrapper">
+      <div class="header__content">
+        <div>LinkedIn</div>
+        <div class="button-wrapper">
+          <button id="button" class="btn">Read articles</button>
+        </div>
+      </div>
+    </header>
+    <main class="main__wrapper">
+      <h1 class="article__title">
+        Application state management design and architecture for a stateless end
+        to end application in double environment product
+      </h1>
+      <h2 class="sub__title">Problem highlights/Requirements</h2>
+      <p class="article__body">
+        The product needed to be accessible to users operating in different
+        environments and with different authorization levels. Some users could
+        access the application through a standard browser, while others — with
+        higher authorization — accessed it through an internally managed portal
+        that we integrated as a third-party service. These authorization levels
+        directly influenced which features were available. Certain
+        functionalities, such as contract closing, printing, discount services,
+        were only exposed to authorized users operating within the portal
+        environment. At the same time, the entire application had to remain
+        stateless from end to end, with no server-side sessions and no
+        requirement to recover data after the session lifecycle ended. This
+        immediately ruled out traditional session-based approaches and forced us
+        to rethink how state should be modeled, scoped, and persisted.
+      </p>
+      <p class="article__body">
+        This project focused on designing the application state management
+        architecture for a stateless, end-to-end product that operates across
+        multiple user environments. The challenge wasn’t simply about choosing a
+        state management library, but about aligning authorization, environment
+        constraints, persistence requirements, and stateless architecture into a
+        coherent and scalable solution. From the beginning, it was clear that
+        this problem required architectural thinking rather than just an
+        implementation detail — the kind of thinking that sits at the
+        intersection of Software Engineering and Solutions Architecture.
+      </p>
+
+      <h2 class="sub__title">
+        Why Initialization Context Became the Key Design Decision
+      </h2>
+      <p class="article__body">
+        One of the earliest and most important architectural decisions was
+        realizing that where the application is initialized determines how state
+        must be managed. On application startup — or reinitialization — we
+        perform a one-time check to determine whether the app is running in the
+        native browser or inside the portal. This check only needs to happen
+        once because the execution context of the application cannot change
+        after initialization. That single decision influences the entire state
+        model for the lifetime of the app instance. This allowed us to branch
+        our state management strategy cleanly without introducing runtime
+        ambiguity or conditional logic scattered throughout the codebase.
+      </p>
+      <h2 class="sub__title">Native Browser Access and Standard Redux State</h2>
+      <p class="article__body">
+        For users accessing the application through the native browser, the
+        solution was intentionally conventional. Using Redux as a top-level
+        state management library fit the problem perfectly. It is predictable,
+        industry-standard, and well suited for managing global application state
+        in a single-instance environment. In this scenario, there is only one
+        running instance of the application, no risk of state collision, and no
+        need for additional abstraction. Adopting Redux here allowed us to move
+        quickly.
+      </p>
+      <h2 class="sub__title">Portal Access and the Need for Isolated State</h2>
+      <p class="article__body">
+        The portal environment introduced a very different challenge. Multiple
+        instances of the same application could exist simultaneously, all within
+        the same browser context. Each instance needed to be fully isolated,
+        authorization-aware, and independent from the others. A single global
+        Redux store would not work here. State collisions, unintended side
+        effects, and feature leakage between instances would be inevitable. This
+        is where we deliberately deviated from the traditional approach.
+      </p>
+      <h2 class="sub__title">
+        Two-Level State Management Using Instance-Scoped State
+      </h2>
+      <p class="article__body">
+        To solve this, we implemented a two-level state management model. Every
+        time the application is initialized or reinitialized inside the portal,
+        a unique instanceId is generated. This instanceId remains constant for
+        the entire lifecycle of that application instance. All state for that
+        instance is namespaced under this identifier, effectively creating
+        isolated state containers within a single Redux store. Conceptually, the
+        state structure looks like this:
+      </p>
+      <pre class="pre__wrapper">
+        <code class="language-javascript">
+        State = { 
+          instanceId_1: { ... }, 
+          instanceId_2: { ... } 
+        }
+        </code>
+      </pre>
+      <p class="article__body">
+        Each instance owns its own state, its own data, and its own lifecycle.
+        This approach preserves statelessness and allows controlled state
+        persistence at the client level.
+      </p>
+      <h2 class="sub__title">
+        Persisting State Without Breaking Statelessness
+      </h2>
+      <p class="article__body">
+        To persist state across the session lifecycle — and only for the
+        duration of that lifecycle — we relied on browser sessionStorage.
+        Session storage was a deliberate choice. It is scoped to the tab,
+        automatically cleared when the session ends, and enforces a hard size
+        limit. These constraints worked for the requirements: no session
+        recovery and no long-lived persistence. At the end of a session, state
+        is destroyed by default, without any additional cleanup logic.
+        Statelessness is preserved by design, not by convention in that when
+        users switch between tabs in the portal, the sessionStorage data is
+        maintained but when the browser context is closed, the session is
+        cleaned up by convention.
+      </p>
+      <h2 class="sub__title">
+        Optimizing Persistence Through Lifecycle Events
+      </h2>
+      <p class="article__body">
+        Rather than continuously syncing state to storage, we optimized
+        persistence by storing state only when the tab loses focus. This
+        significantly reduces unnecessary writes and avoids performance overhead
+        during normal interaction. When the user returns to the tab, the
+        application is reinstantiated, state is rehydrated from sessionStorage
+        into the Redux store, and then removed from storage synchronously. This
+        completes the state lifecycle cleanly and predictably. This features was
+        implemented based on the specific requirements of the product and
+        understanding execution context, state boundaries, and lifecycle
+        constraints, and then designing around them.
+      </p>
+    </main>
+    <script src="prism.js"></script>
+  </body>
+</html>
