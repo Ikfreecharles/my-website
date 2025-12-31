@@ -1,0 +1,116 @@
+.footer {
+  margin: 0 auto;
+  width: 96vw;
+}
+.footer__inner {
+  width: 65vw;
+  margin: 0 auto;
+  padding: 10rem 0;
+}
+.reveal__outer {
+  border-radius: 50cqh;
+  background-color: var(--grey-2);
+  height: 13rem;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+.reveal__inner {
+  height: 100%;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 50cqh;
+  position: relative;
+  background-color: var(--grey-3);
+  transition: background-color 0.5s ease-in-out, border 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.reveal__inner__isopen {
+  background-color: var(--theme-color-4);
+  border-color: var(--theme-color-4);
+}
+.reveal__wrapper {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.5%;
+  transform-origin: 50% 50% 0px;
+  transform: translateX(0);
+  transition: left 0.5s var(--transition-style),
+    transform 0.5s var(--transition-style);
+  white-space: nowrap;
+}
+.reveal__wrapper__isopen {
+  left: 99.5%;
+  transform: translateX(-99%);
+}
+.reveal__btn__container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.reveal__btn {
+  border: 1px solid var(--border-color);
+  height: 11.25rem;
+  width: 11.25rem;
+  min-width: 11.25rem !important;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  background-color: var(--grey-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reveal__btn:hover {
+  background-color: var(--white);
+}
+.contact__email {
+  padding-left: 3rem;
+  font-size: calc(var(--font-size) * 2.5);
+  color: var(--white);
+  opacity: 0;
+  font-family: var(--sec-font);
+  transition: opacity 0.25s ease-in-out, transform 0.5s ease-in-out;
+  cursor: pointer;
+  transition: text-decoration 0.5s ease-in-out;
+}
+.contact__email__isopen {
+  opacity: 100%;
+  transform: translateX(2rem);
+}
+.contact__email:hover {
+  text-decoration: underline;
+}
+.email__address {
+  opacity: 0.3;
+  transition: opacity 5s ease-in-out;
+  font-family: var(--sec-font);
+}
+.email__address__isopen {
+  display: none;
+  opacity: 0;
+}
+.about__me {
+  font-family: var(--sec-font);
+  padding: 0 0 10rem;
+}
+.reveal__btn::before {
+  content: "";
+  background-image: url("../../../static/img/arrow-right-dark.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  transform: scaleX(1);
+  transition: transform 0.2s ease-in-out;
+}
+.reveal__btn__isopen::before {
+  transform: scaleX(-1);
+}
