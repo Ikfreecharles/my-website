@@ -34,26 +34,28 @@ export const PageWrapper: FC<Props> = ({ children }) => {
                 charlesikulayo@gmail.com
               </a>
             </span>
-            <div
-              className={`${styles.reveal__wrapper} ${
-                isRevealed && styles.reveal__wrapper__isopen
-              }`}
-            >
-              <div className={styles.reveal__btn__container}>
-                <div
-                  className={`${styles.reveal__btn} ${
-                    isRevealed && styles.reveal__btn__isopen
-                  }`}
-                  onClick={handleRevealBtn}
-                ></div>
-                <p
-                  className={`${styles.email__address} ${
-                    isRevealed && styles.email__address__isopen
-                  }`}
-                >
-                  Reveal <br />
-                  email address
-                </p>
+            <div className={styles.button__container}>
+              <div
+                className={`${styles.reveal__wrapper} ${
+                  isRevealed && styles.reveal__wrapper__isopen
+                }`}
+              >
+                <div className={styles.reveal__btn__container}>
+                  <div
+                    className={`${styles.reveal__btn} ${
+                      isRevealed && styles.reveal__btn__isopen
+                    } ${isRevealed && styles.reveal__btn__isright}`}
+                    onClick={handleRevealBtn}
+                  ></div>
+                  <p
+                    className={`${styles.email__address} ${
+                      isRevealed && styles.email__address__isopen
+                    }`}
+                  >
+                    Reveal <br />
+                    email address
+                  </p>
+                </div>
               </div>
             </div>
           </div>

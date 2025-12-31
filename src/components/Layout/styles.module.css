@@ -1,7 +1,3 @@
-.footer {
-  margin: 0 auto;
-  width: 96vw;
-}
 .footer__inner {
   width: 65vw;
   margin: 0 auto;
@@ -10,13 +6,13 @@
 .reveal__outer {
   border-radius: 50cqh;
   background-color: var(--grey-2);
-  height: 13rem;
+  height: clamp(60px, 15vw, 20rem);
   width: 100%;
   border: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 8px;
 }
 .reveal__inner {
   height: 100%;
@@ -29,35 +25,46 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding: 4px;
 }
 .reveal__inner__isopen {
   background-color: var(--theme-color-4);
   border-color: var(--theme-color-4);
 }
+.button__container {
+  height: 100%;
+  position: relative;
+}
 .reveal__wrapper {
   position: absolute;
-  top: 0.25rem;
-  left: 0.5%;
+  top: 0;
+  left: 0;
+  bottom: 0;
   transform-origin: 50% 50% 0px;
   transform: translateX(0);
   transition: left 0.5s var(--transition-style),
     transform 0.5s var(--transition-style);
   white-space: nowrap;
+  aspect-ratio: 1;
 }
 .reveal__wrapper__isopen {
-  left: 99.5%;
-  transform: translateX(-99%);
+  left: 100%;
+  transform: translateX(-100%);
 }
 .reveal__btn__container {
   display: flex;
   align-items: center;
   gap: 1rem;
+  height: 100%;
+  width: 100%;
+  min-height: 100% !important;
+  min-width: 100% !important;
 }
 .reveal__btn {
+  position: relative;
   border: 1px solid var(--border-color);
-  height: 11.25rem;
-  width: 11.25rem;
-  min-width: 11.25rem !important;
+  height: 100%;
+  width: 100%;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
@@ -65,24 +72,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  aspect-ratio: 1;
 }
-
 .reveal__btn:hover {
   background-color: var(--white);
+  transform: translateX(5px);
+}
+.reveal__btn__isright:hover {
+  transform: translateX(-5px);
 }
 .contact__email {
-  padding-left: 3rem;
-  font-size: calc(var(--font-size) * 2.5);
+  position: absolute;
+  left: 1rem;
+  font-size: 3.6vw;
   color: var(--white);
   opacity: 0;
   font-family: var(--sec-font);
-  transition: opacity 0.25s ease-in-out, transform 0.5s ease-in-out;
+  font-weight: 300;
+  transform: translateX(0rem);
+  transition: opacity 0.5s ease-in-out, transform 0.75s ease-in-out,
+    left 0.5s ease-in-out, text-decoration 0.5s ease-in-out;
   cursor: pointer;
-  transition: text-decoration 0.5s ease-in-out;
+  z-index: -1;
 }
 .contact__email__isopen {
   opacity: 100%;
-  transform: translateX(2rem);
+  transform: translateX(3rem);
+  z-index: 1;
 }
 .contact__email:hover {
   text-decoration: underline;
@@ -106,11 +122,34 @@
   background-size: contain;
   background-repeat: no-repeat;
   display: inline-block;
-  width: 35px;
-  height: 35px;
+  width: 30%;
+  height: 30%;
+  aspect-ratio: 1;
   transform: scaleX(1);
   transition: transform 0.2s ease-in-out;
 }
 .reveal__btn__isopen::before {
   transform: scaleX(-1);
+}
+@media (width <= 1100px) {
+  .footer__inner {
+    width: 98vw;
+    margin: 0 auto;
+  }
+  .reveal__outer {
+    padding: 0;
+  }
+  .reveal__inner {
+    padding: 3px;
+  }
+  .contact__email__isopen {
+    opacity: 100%;
+    left: 2rem;
+    transform: translateX(0);
+  }
+}
+@media (width <= 720px) {
+  .reveal__inner {
+    padding: 1px;
+  }
 }

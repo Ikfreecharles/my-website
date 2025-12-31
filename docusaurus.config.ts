@@ -72,6 +72,16 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
+    metadata: [
+      {
+        name: "keywords",
+        content: "software, engineering, architect, solutions_architect",
+      },
+      {
+        name: "twitter:card",
+        content: "Software_engineer_solutions_architect",
+      },
+    ],
     image: "img/docusaurus-social-card.jpg",
     colorMode: {
       disableSwitch: true,

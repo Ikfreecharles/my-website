@@ -127,7 +127,7 @@ const cards = [
     title:
       "Data Rehydration and Persistence across different app environment and instances",
     tags: ["Frontend"],
-    to: "/data-rehydration-and-persistence",
+    to: "/data-rehydration-and-persistence/",
     specialClass: ["color__pri"],
     isTagLight: true,
     isButtonLight: true,
@@ -135,20 +135,20 @@ const cards = [
   {
     title: "Internal and External dependencies version updates",
     tags: ["Frontend"],
-    to: "/dependencies-version-updates",
+    to: "/dependencies-version-updates/",
     specialClass: ["height__75"],
   },
   {
     title: " How did we handle rendering of large dataset on the DOM?",
     tags: ["Frontend", "Machine learning"],
-    to: "/rendering-of-large-dataset-on-dom",
+    to: "/rendering-of-large-dataset-on-dom/",
     specialClass: ["color__sec"],
   },
   {
     title:
       "Application state management design and architecture for a stateless end to end design",
     tags: ["Frontend", "Enterprise"],
-    to: "/state-management-design",
+    to: "/state-management-design/",
     specialClass: ["height__50", "color__ter"],
     isTagLight: true,
     isButtonLight: true,
@@ -156,6 +156,6 @@ const cards = [
   {
     title: "Product and Data Architecture",
     tags: ["Fullstack", "Architecture", "AWS"],
-    to: "/product-and-data-architecture",
+    to: "/product-and-data-architecture/",
   },
 ];
