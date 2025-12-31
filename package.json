@@ -22,7 +22,9 @@
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "swiper": "^12.0.3"
+    "swiper": "^12.0.3",
+    "postcss-selector-parser": "6.1.2",
+    "search-insights": "2.17.3"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.9.2",
@@ -47,6 +49,7 @@
     "node": ">=20.0"
   },
   "resolutions": {
-    "postcss-selector-parser": "6.1.2"
+    "postcss-selector-parser": "6.1.2",
+    "search-insights": "2.17.3"
   }
 }
