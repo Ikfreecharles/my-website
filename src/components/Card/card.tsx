@@ -39,8 +39,9 @@ export const Card: FC<Props> = ({
       >
         <div className={styles.solution__box}>
           <div>
-            <Heading as="h3">{title}</Heading>
-
+            <Heading as="h3" className={styles.card__title}>
+              {title}
+            </Heading>
             <div id={styles.tags}>
               {tags.map((tag, idx) => (
                 <span
@@ -59,7 +60,6 @@ export const Card: FC<Props> = ({
               <div className={styles.full__article__container}>
                 <Link
                   to={to}
-                  rel="noopener noreferrer"
                   className={`${styles.full__article} ${
                     isButtonLight && styles.full__article_light
                   }`}
