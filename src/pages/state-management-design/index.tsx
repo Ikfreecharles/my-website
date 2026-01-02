@@ -1,7 +1,6 @@
-import React, { ReactNode } from "react";
-import Heading from "@theme/Heading";
-import { PageWrapper } from "@site/src/components/Layout/layout";
 import { Feature } from "@site/src/components/Feature/feature";
+import PageWrapper from "@site/src/components/Layout/layout";
+import React, { ReactNode } from "react";
 
 export default function StateManagementDesign(): ReactNode {
   return (
@@ -45,6 +44,6 @@ const featuredPost = [
   },
   {
     heading: "Optimizing Persistence Through Lifecycle Events",
-    body: "Rather than continuously syncing state to storage, we optimized persistence by storing state only when the tab loses focus. This significantly reduces unnecessary writes and avoids performance overhead during normal interaction. When the user returns to the tab, the application is reinstantiated, state is rehydrated from sessionStorage into the Redux store, and then removed from storage synchronously. This completes the state lifecycle cleanly and predictably. This features was implemented based on the specific requirements of the product and understanding execution context, state boundaries, and lifecycle constraints, and then designing around them.",
+    body: "Rather than continuously syncing state to storage, we optimized persistence by storing state only when the tab loses focus. This significantly reduces unnecessary writes and avoids performance overhead during normal interaction. When the user returns to the tab, the application is reinstantiated, state is rehydrated from sessionStorage into the Redux store, and then removed from storage synchronously. This completes the state lifecycle cleanly and predictably. This feature was implemented based on the specific requirements of the product and understanding execution context, state boundaries, and lifecycle constraints, and then designing around them.",
   },
 ];

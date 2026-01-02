@@ -65,7 +65,7 @@ body {
   font-size: var(--font-size);
   min-height: 100%;
   position: relative;
-  line-height: normal;
+  line-height: 1.4rem;
 }
 a {
   color: var(--white);
@@ -86,6 +86,9 @@ button {
   padding: 0px;
   font-weight: 400;
   font-family: var(--main-font);
+}
+p {
+  font-family: var(--sec-font);
 }
 .button {
   padding: 1rem 2rem;

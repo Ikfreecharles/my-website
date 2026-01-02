@@ -68,6 +68,16 @@ export const Card: FC<Props> = ({
                 >
                   <span>Full article</span>
                 </Link>
+                <div
+                  className={`${styles.underline__link} ${
+                    styles.underline__link__first
+                  } ${isButtonLight && styles.underline__link_light}`}
+                ></div>
+                <div
+                  className={`${styles.underline__link} ${
+                    styles.underline__link__second
+                  } ${isButtonLight && styles.underline__link_light}`}
+                ></div>
               </div>
             </div>
           </div>

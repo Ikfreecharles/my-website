@@ -7,7 +7,7 @@ interface Props {
   sections: { heading: string; body: string }[];
 }
 
-export const Feature: FC<Props> = ({ title, sections }) => {
+export const Feature: FC<Props> = ({ title, sections }: Props) => {
   return (
     <main className={styles.main__wrapper}>
       <Heading as="h1" className={styles.article__title}>

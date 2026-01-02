@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import Heading from "@theme/Heading";
-import { PageWrapper } from "@site/src/components/Layout/layout";
+import PageWrapper from "@site/src/components/Layout/layout";
 
 export default function ProductAndDataArchitecture(): ReactNode {
   return (

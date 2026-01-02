@@ -1,7 +1,7 @@
 .footer__inner {
   width: 65vw;
   margin: 0 auto;
-  padding: 10rem 0;
+  padding: 10rem 0 3rem;
 }
 .reveal__outer {
   border-radius: 50cqh;
@@ -59,6 +59,13 @@
   width: 100%;
   min-height: 100% !important;
   min-width: 100% !important;
+  transition: transform 0.25s ease-in-out;
+}
+.reveal__btn__container:hover {
+  transform: translateX(7px);
+}
+.reveal__btn__container__isright:hover {
+  transform: translateX(-7px);
 }
 .reveal__btn {
   position: relative;
@@ -76,10 +83,6 @@
 }
 .reveal__btn:hover {
   background-color: var(--white);
-  transform: translateX(5px);
-}
-.reveal__btn__isright:hover {
-  transform: translateX(-5px);
 }
 .contact__email {
   position: absolute;
@@ -112,9 +115,19 @@
   display: none;
   opacity: 0;
 }
+.about__me__wrapper {
+  width: 95%;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+}
 .about__me {
-  font-family: var(--sec-font);
-  padding: 0 0 10rem;
+  width: 60%;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.about__ {
+  background-color: var(--white);
+  height: 100%;
 }
 .reveal__btn::before {
   content: "";
