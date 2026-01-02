@@ -37,6 +37,10 @@ const featuredPost = [
   {
     heading: "Two-Level State Management Using Instance-Scoped State",
     body: "To solve this, we implemented a two-level state management model. Every time the application is initialized or reinitialized inside the portal, a unique instanceId is generated. This instanceId remains constant for the entire lifecycle of that application instance. All state for that instance is namespaced under this identifier, effectively creating isolated state containers within a single Redux store. Conceptually, the state structure looks like this:",
+    code: `redux_state = {
+  instanceId_1: { ... },
+  instanceId_2: { ... }
+}`,
   },
   {
     heading: "Persisting State Without Breaking Statelessness",

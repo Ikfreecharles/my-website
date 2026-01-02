@@ -19,6 +19,7 @@ import { blurbs, breakpoints, cards } from "./__data/data";
 import { gsap } from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 import { useGSAP } from "@gsap/react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Home(): ReactNode {
   gsap.registerPlugin(ScrambleTextPlugin);
@@ -100,6 +101,12 @@ export default function Home(): ReactNode {
             onPointerLeave={handleMouseLeave}
             ref={headingWrapper}
           >
+            <DotLottieReact
+              src="https://lottie.host/d7ca0311-77d4-4289-8d4b-d529712a68b4/rljPsbAsp2.lottie"
+              loop
+              autoplay
+            />
+
             <div>
               <Heading as="h1" className={styles.title} ref={title}>
                 Senior Software Engineer and{" "}
@@ -171,6 +178,7 @@ export default function Home(): ReactNode {
                       specialClass,
                       isTagLight,
                       isButtonLight,
+                      icon,
                     },
                     idx
                   ) => (
@@ -185,6 +193,7 @@ export default function Home(): ReactNode {
                         specialClass={specialClass}
                         isTagLight={isTagLight}
                         isButtonLight={isButtonLight}
+                        icon={icon}
                       />
                     </SwiperSlide>
                   )

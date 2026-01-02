@@ -69,7 +69,10 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
+  markdown: {
+    mermaid: true,
+  },
+  themes: ["@docusaurus/theme-mermaid"],
   themeConfig: {
     // Replace with your project's social card
     metadata: [
@@ -113,12 +116,15 @@ const config: Config = {
     },
     footer: {
       style: "light",
-      copyright: `Copyright © ${new Date().getFullYear()} Charles Ikulayo - Software Engineer x Solutions Architect. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Charles Ikulayo - Software Engineer x Solutions Architect. Built with Docusaurus. <a href="https://lordicon.com/">Animated icons by Lordicon.com</a>`,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismThemes.nightOwl,
       darkTheme: prismThemes.dracula,
       defaultLanguage: "javascript",
+    },
+    mermaid: {
+      theme: { light: "dark", dark: "forest" },
     },
   } satisfies Preset.ThemeConfig,
 };

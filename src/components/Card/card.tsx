@@ -2,6 +2,7 @@ import Heading from "@theme/Heading";
 import Link from "@docusaurus/Link";
 import { FC } from "react";
 import styles from "./styles.module.css";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 interface Props {
   index: number;
@@ -12,6 +13,7 @@ interface Props {
   specialClass?: string[];
   isTagLight?: boolean;
   isButtonLight?: boolean;
+  icon?: string;
 }
 
 export const Card: FC<Props> = ({
@@ -23,6 +25,7 @@ export const Card: FC<Props> = ({
   specialClass,
   isTagLight,
   isButtonLight,
+  icon,
 }) => {
   return (
     <article
@@ -55,6 +58,9 @@ export const Card: FC<Props> = ({
               ))}
             </div>
           </div>
+          {/* <div className={styles.icon__wrapper}>
+            <img src={icon} alt={icon} width="150" />
+          </div> */}
           <div>
             <div className={styles.full__article__wrapper}>
               <div className={styles.full__article__container}>
