@@ -35,6 +35,7 @@ const cards = [
     title: "Product and Data Architecture",
     tags: ["Fullstack", "Architecture", "AWS"],
     to: "/product-and-data-architecture/",
+    specialClass: ["height__75"],
     icon: "/img/wired-outline.apng",
   },
 ];
