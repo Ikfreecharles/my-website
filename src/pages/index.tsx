@@ -91,97 +91,110 @@ export default function Home(): ReactNode {
   );
 
   return (
-    <>
-      <main className={styles.main__container}>
-        <div
-          className={styles.heading__wrapper}
-          onPointerMove={handleMouseMove}
-          onPointerLeave={handleMouseLeave}
-          ref={headingWrapper}
-        >
-          <div>
-            <Heading as="h1" className={styles.title} ref={title}>
-              Senior Software Engineer and{" "}
-              <em id={styles.spec__char}>architect*</em>
-            </Heading>
-            <Heading as="h2" className={styles.heading__desc} ref={headingDesc}>
-              Over the last seven years, I have worked <br />
-              with a variety of companies and clients to <br />
-              <em ref={todo}>build scalable software solutions.</em>
-            </Heading>
+    <PageWrapper>
+      <>
+        <main className={styles.main__container}>
+          <div
+            className={styles.heading__wrapper}
+            onPointerMove={handleMouseMove}
+            onPointerLeave={handleMouseLeave}
+            ref={headingWrapper}
+          >
+            <div>
+              <Heading as="h1" className={styles.title} ref={title}>
+                Senior Software Engineer and{" "}
+                <em id={styles.spec__char}>architect*</em>
+              </Heading>
+              <Heading
+                as="h2"
+                className={styles.heading__desc}
+                ref={headingDesc}
+              >
+                Over the last seven years, I have worked <br />
+                with a variety of companies and clients to <br />
+                <em ref={todo}>build scalable software solutions.</em>
+              </Heading>
+            </div>
+            <button className="btn button">
+              <a
+                href="https://www.linkedin.com/in/charles-ikulayo"
+                target="_blank"
+              >
+                Say Hello on LinkedIn
+              </a>
+            </button>
           </div>
-          <button className="btn button">
-            <a
-              href="https://www.linkedin.com/in/charles-ikulayo"
-              target="_blank"
-            >
-              Say Hello on LinkedIn
-            </a>
-          </button>
-        </div>
-      </main>
-      <section className={styles.completed__features__section}>
-        <div className={styles.features__section}>
-          <div className={styles.project__exec}>
-            <Heading as="h2">/completed_features</Heading>
-            <Heading as="h3">
-              Modularity as a philosophy in programming, code implementation,
-              workflow execution at all level.
-            </Heading>
-            <p>
-              For over seven years, I've been collaborating on projects ranging
-              from design to development working with global companies and
-              startups on new ventures and prototypes. Across all of these, my
-              philosophy of modularity has remained the same for both projects
-              and workflow. Taking it one feature at a time and ensuring they
-              are testable independently.
-            </p>
+        </main>
+        <section className={styles.completed__features__section}>
+          <div className={styles.features__section}>
+            <div className={styles.project__exec}>
+              <Heading as="h2">/completed_features</Heading>
+              <Heading as="h3">
+                Modularity as a philosophy in programming, code implementation,
+                workflow execution at all level.
+              </Heading>
+              <p>
+                For over seven years, I've been collaborating on projects
+                ranging from design to development working with global companies
+                and startups on new ventures and prototypes. Across all of
+                these, my philosophy of modularity has remained the same for
+                both projects and workflow. Taking it one feature at a time and
+                ensuring they are testable independently.
+              </p>
+            </div>
           </div>
-        </div>
-        <section
-          role="group"
-          aria-label="List of business requirements and how they were solved"
-          aria-roledescription="carousel"
-          id="multiCarousel"
-        >
-          <div aria-atomic="false" aria-live="off" id="carouselInner">
-            <Swiper
-              autoplay={{
-                delay: 2000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              loop={true}
-              slidesPerView={1}
-              modules={[Autoplay, FreeMode]}
-              breakpoints={breakpoints}
-              grabCursor={true}
-            >
-              {cards.map(
-                (
-                  { title, tags, to, specialClass, isTagLight, isButtonLight },
-                  idx
-                ) => (
-                  <SwiperSlide>
-                    <Card
-                      key={idx}
-                      index={idx}
-                      title={title}
-                      tags={tags}
-                      to={to}
-                      groupLength={cards.length}
-                      specialClass={specialClass}
-                      isTagLight={isTagLight}
-                      isButtonLight={isButtonLight}
-                    />
-                  </SwiperSlide>
-                )
-              )}
-            </Swiper>
-          </div>
+          <section
+            role="group"
+            aria-label="List of business requirements and how they were solved"
+            aria-roledescription="carousel"
+            id="multiCarousel"
+          >
+            <div aria-atomic="false" aria-live="off" id="carouselInner">
+              <Swiper
+                autoplay={{
+                  delay: 2000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }}
+                loop={true}
+                slidesPerView={1}
+                modules={[Autoplay, FreeMode]}
+                breakpoints={breakpoints}
+                grabCursor={true}
+              >
+                {cards.map(
+                  (
+                    {
+                      title,
+                      tags,
+                      to,
+                      specialClass,
+                      isTagLight,
+                      isButtonLight,
+                    },
+                    idx
+                  ) => (
+                    <SwiperSlide>
+                      <Card
+                        key={idx}
+                        index={idx}
+                        title={title}
+                        tags={tags}
+                        to={to}
+                        groupLength={cards.length}
+                        specialClass={specialClass}
+                        isTagLight={isTagLight}
+                        isButtonLight={isButtonLight}
+                      />
+                    </SwiperSlide>
+                  )
+                )}
+              </Swiper>
+            </div>
+          </section>
         </section>
-      </section>
-      {/* <section className={styles.partners__workxp}></section> */}
-    </>
+        {/* <section className={styles.partners__workxp}></section> */}
+      </>
+    </PageWrapper>
   );
 }
