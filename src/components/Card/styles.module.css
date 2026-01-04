@@ -58,7 +58,7 @@
   color: var(--white);
 }
 .color__sec {
-  background: var(--theme-color);
+  background: var(--theme-color-5);
 }
 .color__ter {
   background: var(--black);
@@ -120,7 +120,7 @@
 }
 .full__article::before {
   content: "";
-  background-image: url("../../../static/img/arrow-right-dark.svg");
+  background-image: url("../../../static/img/arrow-right-dark.png");
   background-size: contain;
   background-repeat: no-repeat;
   display: inline-block;
@@ -134,7 +134,7 @@
 }
 .full__article::after {
   content: "";
-  background-image: url("../../../static/img/arrow-right-dark.svg");
+  background-image: url("../../../static/img/arrow-right-dark.png");
   background-size: contain;
   background-repeat: no-repeat;
   margin-left: 2.25rem;
@@ -143,10 +143,10 @@
   height: 24px;
 }
 .full__article_light::before {
-  background-image: url("../../../static/img/arrow-right-light.svg") !important;
+  background-image: url("../../../static/img/arrow-right-light.png") !important;
 }
 .full__article_light::after {
-  background-image: url("../../../static/img/arrow-right-light.svg") !important;
+  background-image: url("../../../static/img/arrow-right-light.png") !important;
 }
 .icon__wrapper {
   display: flex;

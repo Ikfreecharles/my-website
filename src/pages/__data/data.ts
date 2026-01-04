@@ -40,9 +40,6 @@ const cards = [
   },
 ];
 
-import React from "react";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-
 const breakpoints = {
   720: {
     slidesPerView: 3,
@@ -56,9 +53,55 @@ const breakpoints = {
 };
 
 const blurbs = [
-  "implement robust designs.",
-  "high performance products.",
-  "build maintainable softwares.",
+  "ship high quality web apps.",
+  "implement scalable software solutions.",
+  "plan and implement robust designs.",
+  "build high performance products.",
 ];
 
-export { cards, breakpoints, blurbs };
+const jobXp = [
+  {
+    company: "Tata Consultancy Services",
+    role: "Senior Software Engineer",
+    duration: "Nov 2022 - current",
+    details:
+      "Complete migration of a large scale insurance product from Java based GUI to React, implementing test, security features, cross platform integration and compatibility and analytics metrics. Maintenance and improvement of previously developed features and implementation of new features. Collaborating with the product owners to create the product vision, analyze and define requirements, translating business needs into clear technical specs and with testers to implement features on-demand. Incremental improvement of code quality through peer reviews, mentoring, and enforcing clean architecture principles.",
+    url: "https://www.tcs.com/",
+  },
+  {
+    company: "Brainbox GmbH (CK Holdings GmbH subs.)",
+    role: "Frontend Developer",
+    duration: "Dec 2021 - October 2022",
+    details:
+      "Responsible for building and testing React-based interfaces for three AI-driven products. Worked directly on developing the frontend features and coordinated extensively with the backend team, to ensure seamless integration between the frontend and backend systems. Daily meeting with other stakeholders working on the products and having ideation, brainstorming sessions. Maintained existing features and integrated with new features, APIs on the frontend, frontend design, testing and code improvement.",
+    url: "https://www.ck-holding.de/",
+  },
+  {
+    company: "Livello GmbH",
+    role: "UI/UX/Frontend developer",
+    duration: "September 2021 - December 2021",
+    details:
+      "Coordinated and collaborated daily with the BE team and other FE engineers to implement new features within the sprints. Modified the design approach, including side by side sittings with team members for hands on implementation of features to improve the design workflow. Maintained existing designs and user interface. Worked closely with the product manager to improve the product based on users' feedback.",
+    url: "https://www.livello.com/",
+  },
+];
+
+const contacts = [
+  {
+    url: "https://www.github.com/Ikfreecharles",
+    logoUrl: "/img/github-logo.png",
+  },
+  {
+    url: "https://www.linkedin.com/in/charles-ikulayo",
+    logoUrl: "/img/linkedin-logo.png",
+  },
+  {
+    url: "mailto:charlesikulayo@gmail.com",
+    logoUrl: "/img/envelope-simple.png",
+  },
+  {
+    url: "https://www.charlesikulayo.dev",
+    logoUrl: "/img/globe-simple.png",
+  },
+];
+export { cards, breakpoints, blurbs, jobXp, contacts };

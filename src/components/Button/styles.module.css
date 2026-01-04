@@ -1,0 +1,12 @@
+.button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 50cqh;
+  cursor: pointer;
+  border: none;
+  font-family: var(--sec-font);
+}
+.btn {
+  background-color: var(--main-bg-color);
+  color: var(--white);
+}

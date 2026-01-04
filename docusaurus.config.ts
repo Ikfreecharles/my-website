@@ -147,12 +147,12 @@ const config: Config = {
           type: "html",
           position: "left",
           value:
-            '<div class="logo__wrapper"><a href="/" class="logo__href navbar__"><div>Charles Ikulayo</div><div>Senior Software Engineer x Architect</div></a></div>',
+            '<div class="logo__wrapper"><a href="/" class="logo__href"><div>Charles Ikulayo</div><div>Senior Software Engineer x Architect</div></a></div>',
           className: "navbar__",
         },
         {
-          href: "https://linkedin.com/in/charles-ikulayo",
-          label: "LinkedIn",
+          href: "https://github.com/Ikfreecharles",
+          label: "Github",
           position: "right",
           className: "navbar__",
         },
@@ -160,7 +160,7 @@ const config: Config = {
     },
     footer: {
       style: "light",
-      copyright: `Copyright © ${new Date().getFullYear()} Charles Ikulayo - Software Engineer x Solutions Architect. Built with Docusaurus. <a href="https://lordicon.com/">Animated icons by Lordicon.com</a>`,
+      copyright: `Copyright © ${new Date().getFullYear()} Charles Ikulayo - Software Engineer x Solutions Architect. Built with Docusaurus. <div> Icons made by <a href="https://www.flaticon.com/authors/travisavery" title="TravisAvery"> TravisAvery </a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>`,
     },
     prism: {
       theme: prismThemes.nightOwl,

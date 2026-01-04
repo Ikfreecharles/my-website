@@ -126,12 +126,12 @@
   line-height: 1.4;
 }
 .about__ {
-  background-color: var(--white);
   height: 100%;
+  font-weight: 700;
 }
 .reveal__btn::before {
   content: "";
-  background-image: url("../../../static/img/arrow-right-dark.svg");
+  background-image: url("../../../static/img/arrow-right-dark.png");
   background-size: contain;
   background-repeat: no-repeat;
   display: inline-block;
@@ -164,5 +164,8 @@
 @media (width <= 720px) {
   .reveal__inner {
     padding: 1px;
+  }
+  .about__me {
+    width: 100%;
   }
 }

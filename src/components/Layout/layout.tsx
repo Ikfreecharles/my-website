@@ -2,6 +2,7 @@ import React, { FC, useCallback, useState } from "react";
 import styles from "./styles.module.css";
 import Layout from "@theme/Layout";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Link from "@docusaurus/Link";
 
 interface Props {
   children: React.ReactNode;
@@ -30,9 +31,9 @@ export default function PageWrapper({ children }: Props) {
                 isRevealed && styles.contact__email__isopen
               }`}
             >
-              <a href="mailto:charlesikulayo@gmail.com">
+              <Link href="mailto:charlesikulayo@gmail.com">
                 charlesikulayo@gmail.com
-              </a>
+              </Link>
             </span>
             <div className={styles.button__container}>
               <div

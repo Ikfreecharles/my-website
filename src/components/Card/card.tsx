@@ -2,9 +2,8 @@ import Heading from "@theme/Heading";
 import Link from "@docusaurus/Link";
 import { FC } from "react";
 import styles from "./styles.module.css";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-interface Props {
+interface CardElement {
   index: number;
   title: string;
   tags: string[];
@@ -16,17 +15,21 @@ interface Props {
   icon?: string;
 }
 
-export const Card: FC<Props> = ({
-  index,
-  title,
-  tags,
-  to,
-  groupLength,
-  specialClass,
-  isTagLight,
-  isButtonLight,
-  icon,
-}) => {
+type ICard = Record<string, CardElement>;
+
+export const Card: FC<ICard> = ({ cardEl }) => {
+  const {
+    index,
+    title,
+    tags,
+    to,
+    groupLength,
+    specialClass,
+    isTagLight,
+    isButtonLight,
+    icon,
+  } = cardEl;
+
   return (
     <article
       className={styles.carousel__slide}

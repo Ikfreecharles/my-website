@@ -10,13 +10,13 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #092120;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #070f20;
+  --ifm-color-primary-dark: #050d1f;
+  --ifm-color-primary-darker: #050e22;
+  --ifm-color-primary-darkest: #030e24;
+  --ifm-color-primary-light: #101e3f;
+  --ifm-color-primary-lighter: #0c2153;
+  --ifm-color-primary-lightest: #09235f;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
@@ -34,11 +34,12 @@
 }
 
 :root {
-  --main-bg-color: #092120;
+  --main-bg-color: #070f20;
   --theme-color: #8dfdba;
   --theme-color-2: #d8ff86;
   --theme-color-3: #eef3e3;
   --theme-color-4: #f8924a;
+  --theme-color-5: #53d3d5;
   --black: #000000;
   --white: #fff;
   --grey: #f5f5f5;
@@ -57,6 +58,7 @@
 }
 html {
   font-size: var(--font-size);
+  overflow-x: hidden;
 }
 body {
   margin: 0px;
@@ -91,24 +93,14 @@ button {
 p {
   font-family: var(--sec-font);
 }
-.button {
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  border-radius: 50cqh;
-  cursor: pointer;
-  border: none;
-  font-family: var(--sec-font);
-}
-.btn {
-  background-color: var(--main-bg-color);
-  color: var(--white);
-}
 .navbar__ {
-  color: var(--black);
   font-size: 1rem;
 }
 .navbar {
   box-shadow: none;
+}
+.navbar a {
+  color: inherit !important;
 }
 .token {
   font-family: var(--code-font);
