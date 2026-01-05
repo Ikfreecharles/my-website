@@ -113,17 +113,22 @@ const codeSnippets = [
     logo: "/img/TypeScript.png",
   },
   { label: "Python", content: "/img/py-snippet.png", logo: "/img/Python.png" },
-  { label: "AWS", content: "/img/aws-snippet.png", logo: "/img/AWS.png" },
+  { label: "IaC", content: "/img/aws-snippet.png", logo: "/img/AWS.png" },
   { label: "CSS", content: "/img/css-snippet.png", logo: "/img/CSS3.png" },
   {
-    label: "Monitoring",
-    content: "/img/grafana-snippet.png",
-    logo: "/img/Grafana.png",
+    label: "CI/CD",
+    content: "/img/deploy-snippet.png",
+    logo: "/img/GitHub-Actions.png",
   },
   {
     label: "Node.js",
     content: "/img/node-snippet.png",
     logo: "/img/Nodejs.png",
+  },
+  {
+    label: "Monitoring",
+    content: "/img/grafana-snippet.png",
+    logo: "/img/Grafana.png",
   },
 ];
 export { cards, breakpoints, blurbs, jobXp, contacts, codeSnippets };
