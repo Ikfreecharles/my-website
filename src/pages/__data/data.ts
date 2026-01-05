@@ -110,7 +110,7 @@ const codeSnippets = [
   {
     label: "Typescript",
     content: "/img/ts-snippet.png",
-    logo: "/img/Typescript.png",
+    logo: "/img/TypeScript.png",
   },
   { label: "Python", content: "/img/py-snippet.png", logo: "/img/Python.png" },
   { label: "AWS", content: "/img/aws-snippet.png", logo: "/img/AWS.png" },
