@@ -60,6 +60,7 @@ const blurbs = [
 ];
 
 const jobXp = [
+  { isSlide: true, details: "" },
   {
     company: "Tata Consultancy Services",
     role: "Senior Software Engineer",
@@ -104,4 +105,25 @@ const contacts = [
     logoUrl: "/img/globe-simple.png",
   },
 ];
-export { cards, breakpoints, blurbs, jobXp, contacts };
+const codeSnippets = [
+  { label: "React", content: "/img/react-snippet.png", logo: "/img/React.png" },
+  {
+    label: "Typescript",
+    content: "/img/ts-snippet.png",
+    logo: "/img/Typescript.png",
+  },
+  { label: "Python", content: "/img/py-snippet.png", logo: "/img/Python.png" },
+  { label: "AWS", content: "/img/aws-snippet.png", logo: "/img/AWS.png" },
+  { label: "CSS", content: "/img/css-snippet.png", logo: "/img/CSS3.png" },
+  {
+    label: "Monitoring",
+    content: "/img/grafana-snippet.png",
+    logo: "/img/Grafana.png",
+  },
+  {
+    label: "Node.js",
+    content: "/img/node-snippet.png",
+    logo: "/img/Nodejs.png",
+  },
+];
+export { cards, breakpoints, blurbs, jobXp, contacts, codeSnippets };

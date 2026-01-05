@@ -178,8 +178,7 @@
   background-color: var(--white);
 }
 .extra__space {
-  height: 10vh;
-  transition: all 1s ease-in-out;
+  height: 20vh;
 }
 .slides__wrapper {
   position: absolute;
@@ -281,11 +280,13 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  transform: translate(-50%, -50%);
   backface-visibility: hidden;
   visibility: hidden;
   pointer-events: none;
   inset: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
 }
 /* Mobile and below */
 

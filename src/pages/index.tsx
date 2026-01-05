@@ -10,40 +10,36 @@ import { Autoplay, FreeMode } from "swiper/modules";
 import PageWrapper from "../components/Layout/layout";
 import { blurbs, breakpoints, cards, contacts, jobXp } from "./__data/data";
 import { gsap } from "gsap";
-import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 import { useGSAP } from "@gsap/react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
+
 import useAnimateBackground from "../hooks/useAnimateBackground";
 import useAnimateContent from "../hooks/useAnimateContent";
 import useAnimateAxis from "../hooks/useAnimateAxis";
 import Button from "../components/Button/button";
-import { translate } from "@docusaurus/Translate";
 import Link from "@docusaurus/Link";
+import CodeSnippets from "../components/Code-Snippets";
 
 export default function Home(): ReactNode {
-  gsap.registerPlugin(ScrambleTextPlugin);
   gsap.registerPlugin(useGSAP);
-  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
   const headingWrapper = useRef<HTMLDivElement>(null);
   const title = useRef<HTMLDivElement>(null);
   const headingDesc = useRef<HTMLDivElement>(null);
   const todo = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const workXpRef = useRef<HTMLElement>(null);
-  const extraRef = useRef<HTMLElement>(null);
+  const extraRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const hoverBlurRef = useRef<HTMLDivElement>(null);
 
-  useAnimateBackground(containerRef, workXpRef, extraRef);
   useAnimateContent(pinRef, timelineRef);
   const [handleMouseMove, handleMouseLeave] = useAnimateAxis({
     headingWrapper,
     title,
     headingDesc,
   });
+  useAnimateBackground(containerRef, workXpRef, extraRef);
 
   const circleRef = useRef<HTMLDivElement>(null);
 
@@ -52,15 +48,18 @@ export default function Home(): ReactNode {
 
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    gsap.to(circleRef.current, {
-      x: `${x - 50}px`,
-      y: `${y - 50}px`,
-      background: `radial-gradient(600px at ${x}px ${y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
-      duration: 0.05,
+
+    gsap.context((self) => {
+      gsap.to(circleRef.current, {
+        // x: `${x - 50}px`,
+        // y: `${y - 50}px`,
+        background: `radial-gradient(600px at ${x}px ${y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
+        duration: 0.05,
+      });
     });
   }
 
-  const handleMouseOver = useCallback(
+  const handleMouseBgOver = useCallback(
     (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
       e.preventDefault();
       e.stopPropagation();
@@ -69,7 +68,7 @@ export default function Home(): ReactNode {
     [circleRef]
   );
 
-  const handleMouseTravel = useCallback(
+  const handleMouseBgTravel = useCallback(
     (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
       e.preventDefault();
       e.stopPropagation();
@@ -78,8 +77,10 @@ export default function Home(): ReactNode {
     [moveCircle, circleRef]
   );
 
-  const handleMouseleave = useCallback(() => {
-    gsap.to(circleRef.current, { scale: 0.1, autoAlpha: 0, duration: 0.25 });
+  const handleMouseBgleave = useCallback(() => {
+    gsap.context((self) => {
+      gsap.to(circleRef.current, { scale: 0.1, autoAlpha: 0, duration: 0.25 });
+    });
   }, [circleRef]);
 
   const handleDescMouseOver = useCallback(
@@ -98,7 +99,7 @@ export default function Home(): ReactNode {
       gsap.to(hoverBlurRef.current, {
         x: `${x - 50}px`,
         y: `${y - 50}px`,
-        duration: 0.05,
+        duration: 0.01,
       });
     },
     [hoverBlurRef]
@@ -113,6 +114,7 @@ export default function Home(): ReactNode {
       ref={containerRef}
       style={{ transition: "background-color 0.3s linear" }}
     >
+      <div ref={circleRef} className={styles.circle__gradient}></div>
       <PageWrapper>
         <main className={`container ${styles.main__container}`}>
           <div
@@ -157,7 +159,11 @@ export default function Home(): ReactNode {
             </Button>
           </div>
         </main>
-        <section className={styles.completed__features__section}>
+
+        <section
+          className={styles.completed__features__section}
+          style={{ margin: "10px" }}
+        >
           <div className={styles.features__section}>
             <div className={styles.project__exec}>
               <Heading as="h2">/completed_features</Heading>
@@ -210,14 +216,14 @@ export default function Home(): ReactNode {
             </div>
           </section>
         </section>
-        <section
-          className={`${styles.partners__workxp}`}
-          ref={workXpRef}
-          onMouseOver={handleMouseOver}
-          onMouseMove={handleMouseTravel}
-          onMouseLeave={handleMouseleave}
-        >
-          <div className={styles.partner__info__wrapper} ref={pinRef}>
+        <section className={`${styles.partners__workxp}`} ref={workXpRef}>
+          <div
+            className={styles.partner__info__wrapper}
+            ref={pinRef}
+            onMouseOver={handleMouseBgOver}
+            onMouseMove={handleMouseBgTravel}
+            // onMouseLeave={handleMouseBgleave}
+          >
             <div className={styles.social__wrapper}>
               {contacts.map(({ url, logoUrl }, idx) => (
                 <Link key={idx} to={url}>
@@ -232,7 +238,6 @@ export default function Home(): ReactNode {
               industry or niche, I am always excited about the adventure that
               lies there.
             </div>
-            <div ref={circleRef} className={styles.circle__gradient}></div>
 
             <div
               className={styles.role__desc}
@@ -242,42 +247,53 @@ export default function Home(): ReactNode {
             >
               <div ref={hoverBlurRef} className={styles.hover__blur}></div>
               <div>
-                {jobXp.map(({ company, role, duration, details, url }, idx) => (
-                  <div
-                    key={idx}
-                    className={`slide ${styles.slides__wrapper}`}
-                    style={{ top: `${50 + idx * 4}%` }}
-                  >
-                    <div className={styles.duration__wrapper}>
-                      <p>{duration}</p>
-                    </div>
-                    <div>
-                      <Link to={url} className={styles.role__title__wraper}>
-                        <Heading as="h4" className={styles.role__title}>
-                          {`${role} - ${company}`}
-                        </Heading>
-                        <div className={styles.visit__arrow}>
-                          <div className={styles.arrows__container}>
-                            <img
-                              src="/img//up-right-arrow-sec.png"
-                              alt={`Visit ${company} website`}
-                            />
-                            <img
-                              src="/img//up-right-arrow-pri.png"
-                              alt={`Visit ${company} website`}
-                            />
+                {jobXp.map(
+                  ({ company, role, duration, details, url, isSlide }, idx) => (
+                    <div
+                      key={idx}
+                      className={`slide ${styles.slides__wrapper}`}
+                      style={{ top: `${50 + idx * 4}%` }}
+                    >
+                      {isSlide ? (
+                        <CodeSnippets />
+                      ) : (
+                        <>
+                          <div className={styles.duration__wrapper}>
+                            <p>{duration}</p>
                           </div>
-                        </div>
-                      </Link>
-                      {/* <Heading as="h4">{company}</Heading> */}
-                      {details.split(". ").map((detail, idx) => (
-                        <p key={idx} className={styles.detail__wrapper}>
-                          {detail}
-                        </p>
-                      ))}
+                          <div>
+                            <Link
+                              to={url}
+                              className={styles.role__title__wraper}
+                            >
+                              <Heading as="h4" className={styles.role__title}>
+                                {`${role} - ${company}`}
+                              </Heading>
+                              <div className={styles.visit__arrow}>
+                                <div className={styles.arrows__container}>
+                                  <img
+                                    src="/img//up-right-arrow-sec.png"
+                                    alt={`Visit ${company} website`}
+                                  />
+                                  <img
+                                    src="/img//up-right-arrow-pri.png"
+                                    alt={`Visit ${company} website`}
+                                  />
+                                </div>
+                              </div>
+                            </Link>
+                            {/* <Heading as="h4">{company}</Heading> */}
+                            {details.split(". ").map((detail, idx) => (
+                              <p key={idx} className={styles.detail__wrapper}>
+                                {detail}
+                              </p>
+                            ))}
+                          </div>
+                        </>
+                      )}
                     </div>
-                  </div>
-                ))}
+                  )
+                )}
                 <div
                   className={`${styles.timeline__wrapper}`}
                   ref={timelineRef}
@@ -287,7 +303,7 @@ export default function Home(): ReactNode {
             </div>
           </div>
         </section>
-        <section ref={extraRef} className={styles.extra__space}></section>
+        <div ref={extraRef} className={styles.extra__space}></div>
       </PageWrapper>
     </div>
   );
