@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./styles.module.css";
 import { codeSnippets } from "@site/src/pages/__data/data";
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 
 export default function CodeSnippets() {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
@@ -39,6 +39,7 @@ export default function CodeSnippets() {
       "resize",
       () => {
         const slides = swiperRef.current.swiper.slides;
+        if (slides === null) return;
         const { x, y, width, height } =
           slides[currentSlide].getBoundingClientRect();
         setDimensions(x, y, width, height);
@@ -49,6 +50,7 @@ export default function CodeSnippets() {
 
   useEffect(() => {
     const slides = swiperRef.current.swiper.slides;
+    if (slides === null) return;
     const { x, y, width, height } =
       slides[currentSlide].getBoundingClientRect();
 
@@ -92,19 +94,21 @@ export default function CodeSnippets() {
             );
           })}
         </Swiper>
-        {codeSnippets.map(({ content }, idx) => (
-          <div key={idx} className={styles.img__wrapper}>
+        <div className={styles.img__wrapper}>
+          {codeSnippets.map(({ content }, idx) => (
             <img
+              key={idx}
               src={content}
               alt={content}
               style={{
                 opacity: idx === currentSlide ? 1 : 0,
                 transform:
                   idx === currentSlide ? "translateY(0)" : "translateY(2%)",
+                position: idx === 0 ? "relative" : "absolute",
               }}
             />
-          </div>
-        ))}
+          ))}{" "}
+        </div>
       </section>
     </div>
   );

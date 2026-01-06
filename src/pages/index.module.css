@@ -193,6 +193,15 @@
   display: flex;
   gap: 2rem;
 }
+.work__tech__title {
+  position: absolute;
+  top: 0;
+  left: -70%;
+  font-size: 12rem;
+  line-height: 7rem;
+  opacity: 0.02;
+  cursor: default;
+}
 .role__title {
   font-family: var(--sec-font);
   font-weight: 900;

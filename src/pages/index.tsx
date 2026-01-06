@@ -12,7 +12,6 @@ import { blurbs, breakpoints, cards, contacts, jobXp } from "./__data/data";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-
 import useAnimateBackground from "../hooks/useAnimateBackground";
 import useAnimateContent from "../hooks/useAnimateContent";
 import useAnimateAxis from "../hooks/useAnimateAxis";
@@ -27,18 +26,18 @@ export default function Home(): ReactNode {
   const headingDesc = useRef<HTMLDivElement>(null);
   const todo = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const workXpRef = useRef<HTMLElement>(null);
-  const extraRef = useRef<HTMLDivElement>(null);
+  const workXpRef = useRef(null);
+  const extraRef = useRef(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const hoverBlurRef = useRef<HTMLDivElement>(null);
 
-  useAnimateContent(pinRef, timelineRef);
   const [handleMouseMove, handleMouseLeave] = useAnimateAxis({
     headingWrapper,
     title,
     headingDesc,
   });
+  useAnimateContent(pinRef, timelineRef);
   useAnimateBackground(containerRef, workXpRef, extraRef);
 
   const circleRef = useRef<HTMLDivElement>(null);
@@ -51,8 +50,6 @@ export default function Home(): ReactNode {
 
     gsap.context((self) => {
       gsap.to(circleRef.current, {
-        // x: `${x - 50}px`,
-        // y: `${y - 50}px`,
         background: `radial-gradient(600px at ${x}px ${y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
         duration: 0.05,
       });
@@ -82,32 +79,6 @@ export default function Home(): ReactNode {
       gsap.to(circleRef.current, { scale: 0.1, autoAlpha: 0, duration: 0.25 });
     });
   }, [circleRef]);
-
-  const handleDescMouseOver = useCallback(
-    (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      e.preventDefault();
-      gsap.to(hoverBlurRef.current, { scale: 1, autoAlpha: 1, duration: 0.25 });
-    },
-    [hoverBlurRef]
-  );
-
-  const handleDescMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      e.preventDefault();
-      const x = e.clientX;
-      const y = e.clientY;
-      gsap.to(hoverBlurRef.current, {
-        x: `${x - 50}px`,
-        y: `${y - 50}px`,
-        duration: 0.01,
-      });
-    },
-    [hoverBlurRef]
-  );
-
-  const handleDescMouseleave = useCallback(() => {
-    gsap.to(hoverBlurRef.current, { scale: 0.1, autoAlpha: 0, duration: 0.25 });
-  }, [hoverBlurRef]);
 
   return (
     <div
@@ -216,7 +187,7 @@ export default function Home(): ReactNode {
             </div>
           </section>
         </section>
-        <section className={`${styles.partners__workxp}`} ref={workXpRef}>
+        <div className={`${styles.partners__workxp}`} ref={workXpRef}>
           <div
             className={styles.partner__info__wrapper}
             ref={pinRef}
@@ -239,16 +210,14 @@ export default function Home(): ReactNode {
               lies there.
             </div>
 
-            <div
-              className={styles.role__desc}
-              // onMouseMove={handleDescMouseMove}
-              // onMouseLeave={handleDescMouseleave}
-              // onMouseOver={handleDescMouseOver}
-            >
+            <div className={styles.role__desc}>
               <div ref={hoverBlurRef} className={styles.hover__blur}></div>
               <div>
                 {jobXp.map(
-                  ({ company, role, duration, details, url, isSlide }, idx) => (
+                  (
+                    { company, role, duration, details, url, isSlide, tag },
+                    idx
+                  ) => (
                     <div
                       key={idx}
                       className={`slide ${styles.slides__wrapper}`}
@@ -282,7 +251,6 @@ export default function Home(): ReactNode {
                                 </div>
                               </div>
                             </Link>
-                            {/* <Heading as="h4">{company}</Heading> */}
                             {details.split(". ").map((detail, idx) => (
                               <p key={idx} className={styles.detail__wrapper}>
                                 {detail}
@@ -291,6 +259,7 @@ export default function Home(): ReactNode {
                           </div>
                         </>
                       )}
+                      <div className={styles.work__tech__title}>{tag}</div>
                     </div>
                   )
                 )}
@@ -302,7 +271,7 @@ export default function Home(): ReactNode {
               </div>
             </div>
           </div>
-        </section>
+        </div>
         <div ref={extraRef} className={styles.extra__space}></div>
       </PageWrapper>
     </div>

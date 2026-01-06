@@ -60,7 +60,7 @@ const blurbs = [
 ];
 
 const jobXp = [
-  { isSlide: true, details: "" },
+  { isSlide: true, details: "", tag: "Tech Saavy" },
   {
     company: "Tata Consultancy Services",
     role: "Senior Software Engineer",
@@ -68,6 +68,7 @@ const jobXp = [
     details:
       "Complete migration of a large scale insurance product from Java based GUI to React, implementing test, security features, cross platform integration and compatibility and analytics metrics. Maintenance and improvement of previously developed features and implementation of new features. Collaborating with the product owners to create the product vision, analyze and define requirements, translating business needs into clear technical specs and with testers to implement features on-demand. Incremental improvement of code quality through peer reviews, mentoring, and enforcing clean architecture principles.",
     url: "https://www.tcs.com/",
+    tag: "Workplace Experience",
   },
   {
     company: "Brainbox GmbH (CK Holdings GmbH subs.)",
@@ -76,6 +77,7 @@ const jobXp = [
     details:
       "Responsible for building and testing React-based interfaces for three AI-driven products. Worked directly on developing the frontend features and coordinated extensively with the backend team, to ensure seamless integration between the frontend and backend systems. Daily meeting with other stakeholders working on the products and having ideation, brainstorming sessions. Maintained existing features and integrated with new features, APIs on the frontend, frontend design, testing and code improvement.",
     url: "https://www.ck-holding.de/",
+    tag: "Workplace Experience",
   },
   {
     company: "Livello GmbH",
@@ -84,6 +86,7 @@ const jobXp = [
     details:
       "Coordinated and collaborated daily with the BE team and other FE engineers to implement new features within the sprints. Modified the design approach, including side by side sittings with team members for hands on implementation of features to improve the design workflow. Maintained existing designs and user interface. Worked closely with the product manager to improve the product based on users' feedback.",
     url: "https://www.livello.com/",
+    tag: "Workplace Experience",
   },
 ];
 
