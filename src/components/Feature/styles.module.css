@@ -42,6 +42,6 @@
 /* Monitor and above */
 @media (width >= 1920px) {
   .main__wrapper {
-    width: 25vw;
+    width: 35vw;
   }
 }

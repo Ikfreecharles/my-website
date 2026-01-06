@@ -1,5 +1,14 @@
 import React from "react";
 
-export default function Tabs() {
-  return <div>Tabs</div>;
+interface Props {}
+
+const TabLabel = () => {
+  return <div></div>;
+};
+
+const TabContent = () => {
+  return <div></div>;
+};
+export default function Tabs({}: Props) {
+  return <section></section>;
 }

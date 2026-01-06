@@ -8,7 +8,7 @@ const config: Config = {
   title: "Charles Ikulayo - Software Engineer x Solutions Architect",
   tagline:
     "Charles Ikulayo is a seasoned Software engineer with 7 years working experience from design to development. Now I'm marching forward into management and architecting as a Solutions Architect to design and develop robust software designs and solutions.",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -50,7 +50,7 @@ const config: Config = {
           {
             tagName: "link",
             rel: "icon",
-            href: "/img/favicon-32x32.png",
+            href: "/img/favicon/favicon-32x32.png",
           },
           {
             tagName: "link",
@@ -64,7 +64,7 @@ const config: Config = {
           },
           {
             tagName: "meta",
-            name: "apple-mobile-web-app-capable",
+            name: "mobile-web-app-capable",
             content: "yes",
           },
           {
@@ -75,7 +75,7 @@ const config: Config = {
           {
             tagName: "link",
             rel: "apple-touch-icon",
-            href: "/img/apple-touch-icon.png",
+            href: "/img/favicon/apple-touch-icon.png",
           },
         ],
       },
@@ -124,7 +124,7 @@ const config: Config = {
         content: "Software_engineer_solutions_architect",
       },
     ],
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/charles-social-card.png",
     colorMode: {
       disableSwitch: true,
       defaultMode: "light",
