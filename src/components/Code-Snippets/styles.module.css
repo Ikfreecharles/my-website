@@ -110,3 +110,8 @@
     border-color: var(--theme-color-5);
   }
 }
+@media (width <= 768px) {
+  .code__frame {
+    padding: 3rem 0 0;
+  }
+}

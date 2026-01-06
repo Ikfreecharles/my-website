@@ -29,7 +29,7 @@
 .heading__desc {
   /* font-size: 2rem; */
   position: relative;
-  height: 100px;
+  height: 80px;
 }
 .cubespinner {
   transform-style: preserve-3d;
@@ -100,7 +100,8 @@
     transform: rotateX(360deg);
   }
 }
-.completed__features__section {
+.completed__features__section,
+.partners__workxp {
   padding: 0 0 3rem;
 }
 .features__section {
@@ -298,10 +299,22 @@
   bottom: 0;
 }
 /* Mobile and below */
-
+@media (width <= 418px) {
+  .heading__desc {
+    height: 140px;
+  }
+}
+@media (width <= 768px) {
+  .slides__wrapper {
+    padding: 1rem 0;
+  }
+  .base__line {
+    display: none;
+  }
+}
 /* Tablet and below */
 @media (width <= 1100px) {
-  .main-container {
+  .main__container {
     width: 99vw;
     margin: 0 auto;
   }
@@ -334,7 +347,7 @@
 
 /* Monitor and above */
 @media (width >= 1920px) {
-  .main-container {
+  .main__container {
     width: 60%;
     margin: 0 auto;
   }
