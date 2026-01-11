@@ -81,6 +81,62 @@ const config: Config = {
       },
     ],
   ],
+  headTags: [
+    {
+      tagName: "link",
+      attributes: {
+        rel: "preconnect",
+        href: "https://www.charlesikulayo.dev",
+      },
+    },
+    {
+      tagName: "script",
+      attributes: {
+        type: "application/ld+json",
+      },
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Charles Ikulayo",
+        jobTitle: "Senior Software Engineer & Solutions Architect",
+        url: "https://www.charlesikulayo.dev",
+        sameAs: [
+          "https://www.linkedin.com/in/charles-ikulayo",
+          "https://github.com/Ikfreecharles",
+        ],
+        knowsAbout: [
+          "Software Engineering",
+          "Solutions Architecture",
+          "React",
+          "TypeScript",
+          "AWS",
+          "Frontend Development",
+          "Full Stack Development",
+          "System Design",
+          "Scalable Web Applications",
+        ],
+        email: "charlesikulayo@gmail.com",
+        logo: "https://www.charlesikulayo.dev/img/favicon/android-chrome-192x192.png",
+        worksFor: [
+          {
+            "@type": "Organization",
+            name: "Tata Consultancy Services",
+            description: "Senior Software Engineer",
+          },
+        ],
+        hasOccupation: {
+          "@type": "Occupation",
+          name: "Software Engineer",
+          occupationLocation: {
+            "@type": "Country",
+            name: "Germany",
+          },
+        },
+        skills:
+          "React, TypeScript, AWS, Python, Node.js, Solutions Architecture",
+      }),
+    },
+  ],
   presets: [
     [
       "classic",
@@ -131,18 +187,30 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     navbar: {
-      // title: "My Site",
-      // logo: {
-      //   alt: "Charles Ikulayo - Software Engineer x Solutions Architect",
-      //   src: "img/logo.svg",
-      //   target: "_self",
-      // },
+      logo: {
+        alt: "Charles Ikulayo - Software Engineer x Solutions Architect",
+        src: "img/favicon/android-chrome-192x192.png",
+        target: "_self",
+        className: "nav__logo",
+      },
       items: [
         {
           type: "html",
           position: "left",
           value:
             '<div class="logo__wrapper"><a href="/" class="logo__href"><div>Charles Ikulayo</div><div>Senior Software Engineer x Architect</div></a></div>',
+          className: "navbar__",
+        },
+        {
+          to: "https://charlesikulayo.dev/blog",
+          label: "Blog",
+          position: "right",
+          className: "navbar__",
+        },
+        {
+          href: "https://linkedin.com/in/charles-ikulayo",
+          label: "LinkedIn",
+          position: "right",
           className: "navbar__",
         },
         {

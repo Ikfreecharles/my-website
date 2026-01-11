@@ -6,9 +6,10 @@
   width: 100%;
   height: auto;
   border-radius: 10px;
-  padding: 3rem;
+  padding: 40px;
   background-color: #011627;
   position: relative;
+  overflow: hidden;
 }
 .inner__frame {
   position: absolute;
@@ -47,9 +48,10 @@
   width: auto;
   color: var(--white);
   cursor: default;
-  padding: 0.1rem 1rem;
-  border: 1px solid transparent;
-  transition: all 0.3s ease-in-out;
+  padding: 1px 15px;
+  border: 1px solid;
+  border-color: transparent;
+  transition: background-color 0.3s, border-color 0.3s, ease-in-out;
   border-radius: 9999px;
 }
 .slide__swiper:hover {
@@ -72,9 +74,8 @@
   color: var(--theme-color-5);
   background-color: rgba(var(--theme-color-5-rgb), 0.1);
   position: absolute;
-  transition: all 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out;
   inset: 0;
-  animation: pulse 5s infinite;
   top: 0;
   left: 0;
 }
@@ -100,18 +101,8 @@
   transition: opacity 1s, transform 1s;
   transition-timing-function: ease-in-out;
 }
-
-@keyframes pulse {
-  0%,
-  100% {
-    border-color: var(--theme-color-2);
-  }
-  50% {
-    border-color: var(--theme-color-5);
-  }
-}
 @media (width <= 768px) {
   .code__frame {
-    padding: 3rem 0 0;
+    padding: 40px 0 0;
   }
 }

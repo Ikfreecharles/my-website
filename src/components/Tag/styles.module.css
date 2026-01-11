@@ -1,0 +1,11 @@
+.tag {
+  padding: 1px 8px;
+  border: 1px solid var(--main-bg-color);
+  border-radius: 50cqb;
+  font-weight: 500;
+  font-size: 0.7rem;
+  font-family: var(--sec-font);
+}
+.tag__inverse {
+  border-color: var(--theme-color-3);
+}

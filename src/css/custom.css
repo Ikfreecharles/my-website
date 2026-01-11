@@ -20,24 +20,32 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --main-bg-color: #070f20;
+  --main-bg-color-light: #1d4ed8;
   --theme-color: #8dfdba;
   --theme-color-2: #d8ff86;
   --theme-color-3: #eef3e3;
   --theme-color-4: #f8924a;
   --theme-color-5: #53d3d5;
+  --theme-grey-1: #f8f8f8;
+  --theme-grey-2: #f0f0eb;
+
+  /* rgb formats */
   --theme-color-5-rgb: 83, 211, 213;
+  --main-bg-color-light-rgb: 29, 78, 216;
+  /* end of rgb formats */
+
   --black: #000000;
   --white: #fff;
   --grey: #f5f5f5;
   --grey-2: #e7e7e7;
   --grey-3: #f3f3f3;
   --border-color: #cfcfcf;
-  --font-size: 14px;
+  --font-size: 16px;
   --height: 450px;
-  --main-font: "Source Serif 4", -apple-system, "Times neue Romans",
-    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-    "Open Sans", "Helvetica Neue", serif;
-  --sec-font: "Inter", sans-serif;
+  --main-font: -apple-system, Inter, "Times neue Romans", BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    serif;
+  --sec-font: Inter, sans-serif;
   --ter-font: "Source Serif 4", serif;
   --code-font: "Google Sans Code";
   --transition-style: cubic-bezier(0.11, 0.45, 0.9, 0.92);
@@ -56,7 +64,6 @@
 }
 html {
   font-size: var(--font-size);
-  overflow-x: hidden;
 }
 body {
   margin: 0px;
@@ -68,7 +75,7 @@ body {
   position: relative;
   line-height: 1.4rem;
   height: auto;
-  overflow-y: hidden;
+  background: var(--theme-grey-1);
 }
 a {
   color: var(--white);
@@ -93,6 +100,9 @@ button {
 p {
   font-family: var(--sec-font);
 }
+nav {
+  background: var(--theme-grey-1);
+}
 .navbar__ {
   font-size: 1rem;
 }
@@ -108,31 +118,65 @@ p {
 .footer__copyright a {
   color: var(--black);
 }
+h1 {
+  font-size: 1.6rem;
+}
+h2,
+h3 {
+  font-size: 1.4rem;
+  em {
+    font-size: 1.4rem;
+  }
+}
+h4,
+h5,
+h6 {
+  font-size: 1.2rem;
+}
+div,
+p,
+span,
+section,
+button {
+  font-size: 1rem;
+}
+.nav__logo {
+  padding: 0 0 0 10px;
+}
+
+/* Monitor and large screen */
 @media (width >= 1920px) {
   html,
   body {
     font-size: 20px !important;
   }
-  h1 {
-    font-size: 1.6rem;
-  }
-  h2,
-  h3 {
-    font-size: 1.4rem;
-    em {
-      font-size: 1.4rem;
-    }
-  }
-  h4 {
-    font-size: 1.3rem;
-  }
-  h5,
-  h6,
-  div,
-  p,
-  span,
-  section,
-  button {
-    font-size: 1rem;
-  }
+}
+/* .swiper-wrapper {
+  display: grid !important;
+  grid-gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "a a d d e f"
+    "b c d d e g";
+} */
+.a {
+  grid-area: a;
+}
+.b {
+  grid-area: b;
+}
+.c {
+  grid-area: c;
+}
+.d {
+  grid-area: d;
+}
+.e {
+  grid-area: e;
+}
+.f {
+  grid-area: f;
+}
+.g {
+  grid-area: g;
 }

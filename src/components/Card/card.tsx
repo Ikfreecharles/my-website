@@ -2,6 +2,8 @@ import Heading from "@theme/Heading";
 import Link from "@docusaurus/Link";
 import { FC } from "react";
 import styles from "./styles.module.css";
+import LinkBtn from "../LinkButton";
+import Tag from "../Tag";
 
 interface CardElement {
   index: number;
@@ -50,14 +52,7 @@ export const Card: FC<ICard> = ({ cardEl }) => {
             </Heading>
             <div id={styles.tags}>
               {tags.map((tag, idx) => (
-                <span
-                  key={idx}
-                  className={`${styles.tag} ${
-                    isTagLight && styles.tag__inverse
-                  }`}
-                >
-                  {tag}
-                </span>
+                <Tag key={idx} text={tag} isTagLight={isTagLight} />
               ))}
             </div>
           </div>
@@ -65,30 +60,9 @@ export const Card: FC<ICard> = ({ cardEl }) => {
             <img src={icon} alt={icon} width="150" />
           </div> */}
           <div>
-            <div className={styles.full__article__wrapper}>
-              <div className={styles.full__article__container}>
-                <Link
-                  to={to}
-                  className={`${styles.full__article} ${
-                    isButtonLight && styles.full__article_light
-                  }`}
-                  aria-label="button"
-                  role="button"
-                >
-                  <span>Full article</span>
-                </Link>
-                <div
-                  className={`${styles.underline__link} ${
-                    styles.underline__link__first
-                  } ${isButtonLight && styles.underline__link_light}`}
-                ></div>
-                <div
-                  className={`${styles.underline__link} ${
-                    styles.underline__link__second
-                  } ${isButtonLight && styles.underline__link_light}`}
-                ></div>
-              </div>
-            </div>
+            <LinkBtn to={to} isButtonLight={isButtonLight}>
+              Full article
+            </LinkBtn>
           </div>
         </div>
       </div>

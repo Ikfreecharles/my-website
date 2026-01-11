@@ -17,7 +17,7 @@ export default function useAnimateBackground(
       const navbar = document.querySelector(".navbar");
       const ctx = gsap.context((self) => {
         gsap.to([navbar, element.current], {
-          color: "var(--white)",
+          color: "var(--theme-grey-1)",
           backgroundColor: "var(--main-bg-color)",
           immediateRender: false,
           duration: 0.05,
@@ -33,11 +33,11 @@ export default function useAnimateBackground(
       const ctxTwo = gsap.context((self) => {
         gsap.to([navbar, element.current], {
           color: "var(--main-bg-color)",
-          backgroundColor: "var(--white)",
+          backgroundColor: "var(--theme-grey-1)",
           immediateRender: false,
           scrollTrigger: {
             trigger: scrollEndEl.current,
-            start: "bottom 100%-=150px",
+            start: "top center-=250px",
             end: "+=100",
             scrub: true,
           },
