@@ -26,44 +26,55 @@ export default function CodeSnippets() {
   );
   const handleTab = useCallback(
     (e: React.MouseEvent<HTMLElement, MouseEvent>, idx: number) => {
-      setCurrentSlide(idx);
+      if (swiperRef.current === null) return;
+      swiperRef.current.swiper.slides[currentSlide].style.borderColor =
+        "transparent";
       const { x, y, width, height } = e.currentTarget.getBoundingClientRect();
-
       setDimensions(x, y, width, height);
+      indicatorRef.current.style.visibility = "visible";
+      setCurrentSlide(idx);
     },
-    [sectionRef, codeFrameRef]
+    [
+      sectionRef.current,
+      codeFrameRef,
+      setCurrentSlide,
+      setDimensions,
+      indicatorRef,
+      swiperRef,
+      currentSlide,
+    ]
   );
 
   useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => {
-        const slides = swiperRef.current.swiper.slides;
-        if (slides === null) return;
+    window.addEventListener("resize", () => {
+      const slides = swiperRef.current.swiper.slides;
+      if (swiperRef.current === null || slides.length < 1) return;
+      else {
         const { x, y, width, height } =
           slides[currentSlide].getBoundingClientRect();
         setDimensions(x, y, width, height);
-      },
-      { once: true }
-    );
+      }
+    });
+    window.removeEventListener("resize", () => setDimensions);
   }, [swiperRef, setDimensions, currentSlide]);
 
   useEffect(() => {
     const slides = swiperRef.current.swiper.slides;
-    if (slides === null) return;
-    const { x, y, width, height } =
-      slides[currentSlide].getBoundingClientRect();
-
-    setDimensions(x, y, width, height);
-  }, [setDimensions, swiperRef]);
+    if (swiperRef.current === null || slides.length < 1) return;
+    else {
+      const { x, y, width, height } =
+        slides[currentSlide].getBoundingClientRect();
+      setDimensions(x, y, width, height);
+    }
+  }, [setDimensions, swiperRef, currentSlide]);
 
   return (
     <div className={styles.code__frame} ref={codeFrameRef}>
       <div className={styles.inner__frame}>
         <div className={styles.window__btns}>
-          <div className={`${styles.close__btn} ${styles.window__btn}`}></div>
-          <div className={`${styles.min__btn} ${styles.window__btn}`}></div>
-          <div className={`${styles.max__btn} ${styles.window__btn}`}></div>
+          <span className={`${styles.close__btn} ${styles.window__btn}`}></span>
+          <span className={`${styles.min__btn} ${styles.window__btn}`}></span>
+          <span className={`${styles.max__btn} ${styles.window__btn}`}></span>
         </div>
       </div>
       <section className={styles.swiper__wrapper} ref={sectionRef}>
@@ -72,6 +83,10 @@ export default function CodeSnippets() {
           slidesPerView={"auto"}
           className={styles.unique__tabs}
           ref={swiperRef}
+          onSliderFirstMove={(e) => {
+            indicatorRef.current.style.visibility = "hidden";
+            e.slides[currentSlide].style.borderColor = "var(--theme-color-5)";
+          }}
         >
           {codeSnippets.map(({ label, logo }, idx) => {
             return (

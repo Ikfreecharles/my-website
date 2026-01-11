@@ -8,7 +8,14 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, FreeMode } from "swiper/modules";
 import PageWrapper from "../components/Layout/layout";
-import { blurbs, breakpoints, cards, contacts, jobXp } from "./__data/data";
+import {
+  blogPosts,
+  blurbs,
+  breakpoints,
+  cards,
+  contacts,
+  jobXp,
+} from "./__data/data";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
@@ -18,6 +25,10 @@ import useAnimateAxis from "../hooks/useAnimateAxis";
 import Button from "../components/Button/button";
 import Link from "@docusaurus/Link";
 import CodeSnippets from "../components/Code-Snippets";
+import { LargeCard } from "../components/Large-Card";
+import LinkBtn from "../components/LinkButton";
+import SmallCard from "../components/Small-Card";
+import BlogCard from "../components/Blog-Card";
 
 export default function Home(): ReactNode {
   gsap.registerPlugin(useGSAP);
@@ -50,7 +61,7 @@ export default function Home(): ReactNode {
 
     gsap.context((self) => {
       gsap.to(circleRef.current, {
-        background: `radial-gradient(600px at ${x}px ${y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
+        background: `radial-gradient(600px at ${x}px ${y}px, rgba(var(--main-bg-color-light-rgb), 0.15), transparent 80%)`,
         duration: 0.05,
       });
     });
@@ -112,10 +123,13 @@ export default function Home(): ReactNode {
               >
                 Over the last seven years, I have worked <br />
                 with a variety of companies and clients to <br />
-                <div ref={todo} className={styles.cubespinner}>
-                  {blurbs.map((blurb, idx) => (
-                    <em key={idx}>{blurb}</em>
-                  ))}
+                <div className={styles.blurb__space}>
+                  <em className={styles.blurb__hide}>{blurbs[0]}</em>
+                  <div ref={todo} className={styles.cubespinner}>
+                    {blurbs.map((blurb, idx) => (
+                      <em key={idx}>{blurb}</em>
+                    ))}
+                  </div>
                 </div>
               </Heading>
             </div>
@@ -129,16 +143,23 @@ export default function Home(): ReactNode {
               </a>
             </Button>
           </div>
+          <div className={styles.social__wrapper}>
+            {contacts.map(({ url, logoUrl }, idx) => (
+              <Link key={idx} to={url}>
+                <img src={logoUrl} alt={`Visit ${url}`} width={34} />
+              </Link>
+            ))}
+            <div className={styles.base__line}></div>
+          </div>
         </main>
 
-        <section
-          className={styles.completed__features__section}
-          style={{ margin: "10px" }}
-        >
+        <section className={styles.completed__features__section}>
           <div className={styles.features__section}>
             <div className={styles.project__exec}>
-              <Heading as="h2">/completed_features</Heading>
-              <Heading as="h3">
+              <Heading as="h2" className={styles.h2__heading}>
+                /completed_features
+              </Heading>
+              <Heading as="h3" className={styles.h3__heading}>
                 Modularity as a philosophy in programming, code implementation,
                 workflow execution at all level.
               </Heading>
@@ -213,66 +234,79 @@ export default function Home(): ReactNode {
             <div className={styles.role__desc}>
               <div ref={hoverBlurRef} className={styles.hover__blur}></div>
               <div>
-                {jobXp.map(
-                  (
-                    { company, role, duration, details, url, isSlide, tag },
-                    idx
-                  ) => (
-                    <div
-                      key={idx}
-                      className={`slide ${styles.slides__wrapper}`}
-                      style={{ top: `${50 + idx * 4}%` }}
-                    >
-                      {isSlide ? (
-                        <CodeSnippets />
-                      ) : (
-                        <>
-                          <div className={styles.duration__wrapper}>
-                            <p>{duration}</p>
-                          </div>
-                          <div>
-                            <Link
-                              to={url}
-                              className={styles.role__title__wraper}
-                            >
-                              <Heading as="h4" className={styles.role__title}>
-                                {`${role} - ${company}`}
-                              </Heading>
-                              <div className={styles.visit__arrow}>
-                                <div className={styles.arrows__container}>
-                                  <img
-                                    src="/img//up-right-arrow-sec.png"
-                                    alt={`Visit ${company} website`}
-                                  />
-                                  <img
-                                    src="/img//up-right-arrow-pri.png"
-                                    alt={`Visit ${company} website`}
-                                  />
-                                </div>
-                              </div>
-                            </Link>
-                            {details.split(". ").map((detail, idx) => (
-                              <p key={idx} className={styles.detail__wrapper}>
-                                {detail}
-                              </p>
-                            ))}
-                          </div>
-                        </>
-                      )}
-                      <div className={styles.work__tech__title}>{tag}</div>
-                    </div>
-                  )
-                )}
+                {jobXp.map((xp, idx) => (
+                  <div
+                    key={idx}
+                    className={`slide ${styles.slides__wrapper}`}
+                    style={{ top: `${45 + idx * 2}%` }}
+                  >
+                    {xp.isSlide ? (
+                      <CodeSnippets />
+                    ) : (
+                      <LargeCard cardEl={{ ...xp, idx: idx }} />
+                    )}
+                    <div className={styles.work__tech__title}>{xp.tag}</div>
+                  </div>
+                ))}
                 <div
                   className={`${styles.timeline__wrapper}`}
                   ref={timelineRef}
                 ></div>
-                <div className={`${styles.timeline__wrapper}`}></div>
               </div>
             </div>
           </div>
         </div>
-        <div ref={extraRef} className={styles.extra__space}></div>
+        <div
+          ref={extraRef}
+          className={`${styles.container__wrapper} ${styles.extra__space}`}
+        >
+          <h2 className={styles.philosophy__title}>
+            /My working philosophy as a Software Engineer
+          </h2>
+          <p className={styles.philosophy__body}>
+            Understanding the primary concept and fundamentals and not the
+            tools. Then, migrating to and adopting whatever tool is not only
+            efficiently done but also quite easy.
+          </p>
+          <LinkBtn to={"https://medium.com/@charles-ikulayo"} isExternalLink>
+            Explore Blog Overview
+          </LinkBtn>
+          {/* <div className={styles.divider__}></div> */}
+          {/* <div className={styles.blog__section__wrapper}>
+            {blogPosts.map((blog, idx) => (
+              <div key={idx} className={styles[blog.classname]}>
+                <BlogCard cardEl={blog} />
+              </div>
+            ))}
+          </div> */}
+          <div className={styles.blog__section__wrapper}>
+            <Swiper
+              autoplay={{
+                delay: 2000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              slidesPerView={1}
+              loop={true}
+              modules={[FreeMode]}
+              breakpoints={breakpoints}
+              grabCursor={true}
+            >
+              {blogPosts.map((blog, idx) => (
+                <SwiperSlide key={idx}>
+                  <BlogCard cardEl={blog} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          {/* <div className={styles.fundamental__phi}>
+            {philosophy.map((card, idx) => (
+              <div key={idx}>
+                <SmallCard cardEl={card} />
+              </div>
+            ))}
+          </div> */}
+        </div>
       </PageWrapper>
     </div>
   );

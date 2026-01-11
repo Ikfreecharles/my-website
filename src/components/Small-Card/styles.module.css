@@ -1,0 +1,10 @@
+.role__title {
+  font-family: var(--sec-font);
+  font-weight: 900;
+  margin: 0 0 5px;
+  font-size: 1.2rem;
+}
+.card__body {
+  font-weight: 600;
+  font-size: 1rem;
+}

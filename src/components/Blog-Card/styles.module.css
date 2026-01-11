@@ -1,0 +1,49 @@
+.card__wrapper {
+  padding: 0 40px 0 0;
+  border-radius: 40px;
+}
+.role__subtitle {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  gap: 10px;
+  opacity: 0.4;
+}
+.role__subtitle span {
+  font-size: 0.75rem;
+  font-family: var(--sec-font);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.role__subtitle span:not(:last-child)::after {
+  content: "";
+  height: 5px;
+  width: 5px;
+  background: var(--black);
+  display: inline-flex;
+}
+.role__title {
+  margin: 0 0 5px;
+  font-style: italic;
+}
+.card__body {
+  font-weight: 600;
+  font-size: 1rem;
+}
+.image__ {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.platform__icon {
+  margin: 0 10px 0 0;
+  width: 20px;
+}
+@media (width <= 768px) {
+  .card__wrapper {
+    padding: 0 5px;
+  }
+}

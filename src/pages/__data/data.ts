@@ -134,4 +134,98 @@ const codeSnippets = [
     logo: "/img/Grafana.png",
   },
 ];
-export { cards, breakpoints, blurbs, jobXp, contacts, codeSnippets };
+const philosophy = [
+  {
+    title: "Programming is a team sport",
+    body: "I find it rewarding sharing my knowledge with others. At my last project with AXA, I worked side by side with juniors in peer programming. The result? We all got better.",
+  },
+  {
+    title: "Growth by being active",
+    body: "Everyday I'm driven to solve problems for others, play around with ideas and create solutions that are useful for myself and others.",
+  },
+  {
+    title: "Never stop learning",
+    body: "I am fascinated by new useful technologies. I don't so much blinding follow hype though. So in my spare time, I learn about new technologies.",
+  },
+];
+const mediumBaseUrl = "medium.com";
+const mediumUserName = "@charles-ikulayo";
+
+const linkedinBaseUrl = "linkedin.com";
+const linkedinUsername = "";
+const blogPosts = [
+  {
+    title: "Road to Certified Solutions Architect",
+    coverImg: "/img/blog/aws-snippet.png",
+    classname: "a",
+    postedPlatform: ["medium", "linkedin"],
+    categories: ["Road to solutions architect", "Blog"],
+    postUrl: [
+      {
+        name: "medium",
+        url: `https://www.${mediumBaseUrl}/${mediumUserName}/road-to-certified-solutions-architect-a4d2bd370f81`,
+      },
+      {
+        name: "linkedin",
+        url: `https://${linkedinBaseUrl}/posts/charles-ikulayo_softwareengineering-solutionsarchitect-aws-activity-7380851826075639808-U3X2?utm_source=share&utm_medium=member_desktop&rcm=ACoAACniigkBr7UcIcp1qlbpCRstJ_Ap4QDaMz8`,
+      },
+    ],
+  },
+  {
+    title: "Road to Solutions Architect 2 - Identity and Access Management",
+    coverImg: "/img/blog/aws-iam.jpg",
+    classname: "b",
+    postedPlatform: ["medium", "linkedin"],
+    categories: ["Road to solutions architect", "Blog"],
+    postUrl: [
+      {
+        name: "medium",
+        url: `https://www.${mediumBaseUrl}/${mediumUserName}/road-to-solutions-architect-cert-part-2-5e421cbfb44f`,
+      },
+      {
+        name: "linkedin",
+        url: `https://${linkedinBaseUrl}/posts/charles-ikulayo_solutionsarchitect-softwareengineer-aws-activity-7382301436916948992-q2HB?utm_source=share&utm_medium=member_desktop&rcm=ACoAACniigkBr7UcIcp1qlbpCRstJ_Ap4QDaMz8`,
+      },
+    ],
+  },
+  {
+    title: "Messaging and Queues in Software Architecture - SQS, SNS, Kinesis",
+    coverImg: "/img/blog/architecture.png",
+    classname: "d",
+    postedPlatform: ["medium"],
+    categories: ["Architecture", "Blog"],
+    postUrl: [
+      {
+        name: "medium",
+        url: `https://www.${mediumBaseUrl}/${mediumUserName}/messaging-and-queues-in-software-architecture-sqs-sns-kinesis-firehose-a4045fdbfd36`,
+      },
+    ],
+  },
+  {
+    title: "Road to Solutions Architect 3 - Elastic Cloud Computing (EC2)",
+    coverImg: "/img/blog/ec2.jpg",
+    classname: "c",
+    postedPlatform: ["medium", "linkedin"],
+    categories: ["Road to solutions architect", "Blog"],
+    postUrl: [
+      {
+        name: "medium",
+        url: `https://www.${mediumBaseUrl}/${mediumUserName}/road-to-solutions-architect-cert-part-3-841b7e9d739c`,
+      },
+      {
+        name: "linkedin",
+        url: `https://${linkedinBaseUrl}/posts/charles-ikulayo_solutionsarchitect-softwareengineer-aws-activity-7383750941948416000-8mF_?utm_source=share&utm_medium=member_desktop&rcm=ACoAACniigkBr7UcIcp1qlbpCRstJ_Ap4QDaMz8`,
+      },
+    ],
+  },
+];
+export {
+  cards,
+  breakpoints,
+  blurbs,
+  jobXp,
+  contacts,
+  codeSnippets,
+  philosophy,
+  blogPosts,
+};
