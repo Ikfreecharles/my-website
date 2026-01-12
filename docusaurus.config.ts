@@ -7,7 +7,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "Charles Ikulayo - Software Engineer x Solutions Architect",
   tagline:
-    "Charles Ikulayo is a seasoned Software engineer with 7 years working experience from design to development. Now I'm marching forward into management and architecting as a Solutions Architect to design and develop robust software designs and solutions.",
+    "Charles Ikulayo is a seasoned Senior software engineer with 7 years working experience from design to development. Now I'm marching forward into management and architecting as a Solutions Architect to design and develop robust software designs and solutions.",
   favicon: "img/favicon/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -81,6 +81,11 @@ const config: Config = {
       },
     ],
   ],
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
   headTags: [
     {
       tagName: "link",
@@ -126,7 +131,11 @@ const config: Config = {
         ],
         hasOccupation: {
           "@type": "Occupation",
+<<<<<<< Updated upstream
           name: "Software Engineer",
+=======
+          name: "Senior Software Engineer",
+>>>>>>> Stashed changes
           occupationLocation: {
             "@type": "Country",
             name: "Germany",
@@ -137,6 +146,10 @@ const config: Config = {
       }),
     },
   ],
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
   presets: [
     [
       "classic",
