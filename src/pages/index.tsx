@@ -256,12 +256,9 @@ export default function Home(): ReactNode {
             </div>
           </div>
         </div>
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
+
         <div ref={extraRef} className={styles.extra__space}></div>
-=======
->>>>>>> Stashed changes
+
         <div
           ref={extraRef}
           className={`${styles.container__wrapper} ${styles.extra__space}`}
@@ -271,13 +268,8 @@ export default function Home(): ReactNode {
           </h2>
           <p className={styles.philosophy__body}>
             Understanding the primary concept and fundamentals and not the
-<<<<<<< Updated upstream
-            tools. Then, migrating to and adopting whatever tool is not only
-            efficiently done but also quite easy.
-=======
             tools. Now, migrating to and adopting whatever tool becomes
             efficiently done and quite easy.
->>>>>>> Stashed changes
           </p>
           <LinkBtn to={"https://medium.com/@charles-ikulayo"} isExternalLink>
             Explore Blog Overview
@@ -318,10 +310,6 @@ export default function Home(): ReactNode {
             ))}
           </div> */}
         </div>
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
       </PageWrapper>
     </div>
   );

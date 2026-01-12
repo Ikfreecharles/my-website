@@ -81,11 +81,7 @@ const config: Config = {
       },
     ],
   ],
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
+
   headTags: [
     {
       tagName: "link",
@@ -131,11 +127,7 @@ const config: Config = {
         ],
         hasOccupation: {
           "@type": "Occupation",
-<<<<<<< Updated upstream
-          name: "Software Engineer",
-=======
           name: "Senior Software Engineer",
->>>>>>> Stashed changes
           occupationLocation: {
             "@type": "Country",
             name: "Germany",
@@ -146,10 +138,7 @@ const config: Config = {
       }),
     },
   ],
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+
   presets: [
     [
       "classic",
