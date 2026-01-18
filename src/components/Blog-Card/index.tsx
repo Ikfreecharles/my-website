@@ -28,7 +28,7 @@ export default function BlogCard({ cardEl }: ICard) {
         <Heading as="h5" className={styles.role__title}>
           <CustomLink to={postUrl[0].url}> {title}</CustomLink>
         </Heading>
-        <div className={styles.sfooter__}>
+        <div className={styles.footer__}>
           {postUrl.map((post, idx) => (
             <CustomLink key={idx} to={post.url}>
               <img

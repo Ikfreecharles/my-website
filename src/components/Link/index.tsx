@@ -12,10 +12,10 @@ export default function CustomLink({
   isLight?: boolean;
 }) {
   return (
-    <div className={styles.link__}>
+    <span className={styles.link__}>
       <Link to={to} style={isLight ? { color: "var(--white)" } : {}}>
         {children}
       </Link>
-    </div>
+    </span>
   );
 }
