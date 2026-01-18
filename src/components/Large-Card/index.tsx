@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import styles from "./styles.module.css";
 import Link from "@docusaurus/Link";
 import Heading from "@theme/Heading";
+import CustomLink from "../Link";
 
 interface Props {
   role?: string;
@@ -24,23 +25,25 @@ export const LargeCard: FC<ILargeCard> = ({ cardEl }) => {
         <p>{duration}</p>
       </div>
       <div>
-        <Link to={url} className={styles.role__title__wraper}>
-          <Heading as="h4" className={styles.role__title}>
-            {`${role} - ${company}`}
-          </Heading>
-          <div className={styles.visit__arrow}>
-            <div className={styles.arrows__container}>
-              <img
-                src="/img//up-right-arrow-sec.png"
-                alt={`Visit ${company} website`}
-              />
-              <img
-                src="/img//up-right-arrow-pri.png"
-                alt={`Visit ${company} website`}
-              />
+        <CustomLink to={url} isLight>
+          <div className={styles.role__title__wraper}>
+            <Heading as="h4" className={styles.role__title}>
+              {`${role} - ${company}`}
+            </Heading>
+            <div className={styles.visit__arrow}>
+              <div className={styles.arrows__container}>
+                <img
+                  src="/img//up-right-arrow-sec.png"
+                  alt={`Visit ${company} website`}
+                />
+                <img
+                  src="/img//up-right-arrow-pri.png"
+                  alt={`Visit ${company} website`}
+                />
+              </div>
             </div>
-          </div>
-        </Link>
+          </div>{" "}
+        </CustomLink>
         {details.split(". ").map((detail, idx) => (
           <p key={idx} className={styles.detail__wrapper}>
             {detail}

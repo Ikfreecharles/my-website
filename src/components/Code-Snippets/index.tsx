@@ -56,7 +56,7 @@ export default function CodeSnippets() {
       }
     });
     window.removeEventListener("resize", () => setDimensions);
-  }, [swiperRef, setDimensions, currentSlide]);
+  }, [swiperRef.current, setDimensions, currentSlide]);
 
   useEffect(() => {
     const slides = swiperRef.current.swiper.slides;

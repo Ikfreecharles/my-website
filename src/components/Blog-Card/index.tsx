@@ -3,6 +3,7 @@ import Heading from "@theme/Heading";
 import styles from "./styles.module.css";
 import Tag from "../Tag";
 import Link from "@docusaurus/Link";
+import CustomLink from "../Link";
 
 interface Props {
   title: string;
@@ -20,21 +21,21 @@ export default function BlogCard({ cardEl }: ICard) {
       <img src={coverImg} alt={title} className={styles.image__} />
       <div className={styles.body__wrapper}>
         <Heading as="h4" className={styles.role__subtitle}>
-          {categories.map((category) => (
-            <span>{category}</span>
+          {categories.map((category, idx) => (
+            <span key={idx}>{category}</span>
           ))}
         </Heading>
         <Heading as="h5" className={styles.role__title}>
-          {title}
+          <CustomLink to={postUrl[0].url}> {title}</CustomLink>
         </Heading>
         <div className={styles.sfooter__}>
           {postUrl.map((post, idx) => (
-            <Link key={idx} to={post.url}>
+            <CustomLink key={idx} to={post.url}>
               <img
                 src={`/img/${post.name}.png`}
                 className={styles.platform__icon}
               />
-            </Link>
+            </CustomLink>
           ))}
         </div>
       </div>

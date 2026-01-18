@@ -1,0 +1,9 @@
+.link__ a {
+  color: var(--black);
+  font-weight: 800;
+  transition: underline 0.3s, color 0.3s, ease-in-out;
+}
+.link__ a:hover {
+  text-decoration: underline;
+  color: var(--main-bg-color-light);
+}

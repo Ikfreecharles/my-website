@@ -153,21 +153,44 @@ const mediumUserName = "@charles-ikulayo";
 
 const linkedinBaseUrl = "linkedin.com";
 const linkedinUsername = "";
+
 const blogPosts = [
   {
-    title: "Road to Certified Solutions Architect",
-    coverImg: "/img/blog/aws-snippet.png",
+    title: "VPC — AWS VPC, Networking, Security, Hybrid Cloud, VPC Peering",
+    coverImg: "/img/blog/aws-vpc.png",
     classname: "a",
-    postedPlatform: ["medium", "linkedin"],
-    categories: ["Road to solutions architect", "Blog"],
+    postedPlatform: ["medium"],
+    categories: ["Solutions Architecture", "Networking", "Blog"],
     postUrl: [
       {
         name: "medium",
-        url: `https://www.${mediumBaseUrl}/${mediumUserName}/road-to-certified-solutions-architect-a4d2bd370f81`,
+        url: `https://www.${mediumBaseUrl}/${mediumUserName}/vpc-aws-vpc-networking-security-hybrid-cloud-vpc-peering-7b5c72270b77`,
       },
+    ],
+  },
+  {
+    title: "DNS and AWS Route53 — How it fits into your architecture",
+    coverImg: "/img/blog/Route53.png",
+    classname: "a",
+    postedPlatform: ["medium"],
+    categories: ["Solutions Architecture", "Blog"],
+    postUrl: [
       {
-        name: "linkedin",
-        url: `https://${linkedinBaseUrl}/posts/charles-ikulayo_softwareengineering-solutionsarchitect-aws-activity-7380851826075639808-U3X2?utm_source=share&utm_medium=member_desktop&rcm=ACoAACniigkBr7UcIcp1qlbpCRstJ_Ap4QDaMz8`,
+        name: "medium",
+        url: `https://www.${mediumBaseUrl}/${mediumUserName}/dns-and-aws-route53-how-it-fits-into-your-architecture-48c30f21566e`,
+      },
+    ],
+  },
+  {
+    title: "Databases in AWS — Aurora, DynamoDB, RDS, Caching Services",
+    coverImg: "/img/blog/aws-db.png",
+    classname: "a",
+    postedPlatform: ["medium"],
+    categories: ["Solutions Architecture", "Blog"],
+    postUrl: [
+      {
+        name: "medium",
+        url: `https://www.${mediumBaseUrl}/${mediumUserName}/databases-in-aws-aurora-dynamodb-rds-caching-services-fd77bd994332`,
       },
     ],
   },
@@ -189,8 +212,22 @@ const blogPosts = [
     ],
   },
   {
+    title:
+      "Authentication and User management in the Cloud — AWS IAM and Organizations",
+    coverImg: "/img/blog/iam.jpg",
+    classname: "d",
+    postedPlatform: ["medium"],
+    categories: ["Architecture", "Blog"],
+    postUrl: [
+      {
+        name: "medium",
+        url: `https://www.${mediumBaseUrl}/${mediumUserName}/authentication-and-user-management-in-the-cloud-aws-iam-and-organizations-56466a35d983`,
+      },
+    ],
+  },
+  {
     title: "Messaging and Queues in Software Architecture - SQS, SNS, Kinesis",
-    coverImg: "/img/blog/architecture.png",
+    coverImg: "/img/blog/messaging.png",
     classname: "d",
     postedPlatform: ["medium"],
     categories: ["Architecture", "Blog"],
@@ -198,6 +235,23 @@ const blogPosts = [
       {
         name: "medium",
         url: `https://www.${mediumBaseUrl}/${mediumUserName}/messaging-and-queues-in-software-architecture-sqs-sns-kinesis-firehose-a4045fdbfd36`,
+      },
+    ],
+  },
+  {
+    title: "Road to Certified Solutions Architect",
+    coverImg: "/img/blog/aws-snippet.png",
+    classname: "a",
+    postedPlatform: ["medium", "linkedin"],
+    categories: ["Road to solutions architect", "Blog"],
+    postUrl: [
+      {
+        name: "medium",
+        url: `https://www.${mediumBaseUrl}/${mediumUserName}/road-to-certified-solutions-architect-a4d2bd370f81`,
+      },
+      {
+        name: "linkedin",
+        url: `https://${linkedinBaseUrl}/posts/charles-ikulayo_softwareengineering-solutionsarchitect-aws-activity-7380851826075639808-U3X2?utm_source=share&utm_medium=member_desktop&rcm=ACoAACniigkBr7UcIcp1qlbpCRstJ_Ap4QDaMz8`,
       },
     ],
   },

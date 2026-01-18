@@ -29,6 +29,9 @@ import { LargeCard } from "../components/Large-Card";
 import LinkBtn from "../components/LinkButton";
 import SmallCard from "../components/Small-Card";
 import BlogCard from "../components/Blog-Card";
+import useAnimateLayering from "../hooks/useAnimateLayering";
+import { useAnimateSplitText } from "../hooks/useAnimateSplitText";
+import CustomLink from "../components/Link";
 
 export default function Home(): ReactNode {
   gsap.registerPlugin(useGSAP);
@@ -42,14 +45,17 @@ export default function Home(): ReactNode {
   const pinRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const hoverBlurRef = useRef<HTMLDivElement>(null);
+  const splitTextRef = useRef<HTMLParagraphElement>(null);
 
   const [handleMouseMove, handleMouseLeave] = useAnimateAxis({
     headingWrapper,
     title,
     headingDesc,
   });
+  // useAnimateSplitText(splitTextRef);
   useAnimateContent(pinRef, timelineRef);
   useAnimateBackground(containerRef, workXpRef, extraRef);
+  useAnimateLayering(headingWrapper);
 
   const circleRef = useRef<HTMLDivElement>(null);
 
@@ -92,10 +98,7 @@ export default function Home(): ReactNode {
   }, [circleRef]);
 
   return (
-    <div
-      ref={containerRef}
-      style={{ transition: "background-color 0.3s linear" }}
-    >
+    <div>
       <div ref={circleRef} className={styles.circle__gradient}></div>
       <PageWrapper>
         <main className={`container ${styles.main__container}`}>
@@ -145,170 +148,189 @@ export default function Home(): ReactNode {
           </div>
           <div className={styles.social__wrapper}>
             {contacts.map(({ url, logoUrl }, idx) => (
-              <Link key={idx} to={url}>
+              <CustomLink key={idx} to={url}>
                 <img src={logoUrl} alt={`Visit ${url}`} width={34} />
-              </Link>
+              </CustomLink>
             ))}
             <div className={styles.base__line}></div>
           </div>
         </main>
 
-        <section className={styles.completed__features__section}>
-          <div className={styles.features__section}>
-            <div className={styles.project__exec}>
-              <Heading as="h2" className={styles.h2__heading}>
-                /completed_features
-              </Heading>
-              <Heading as="h3" className={styles.h3__heading}>
-                Modularity as a philosophy in programming, code implementation,
-                workflow execution at all level.
-              </Heading>
-              <p>
-                For over seven years, I've been collaborating on projects
-                ranging from design to development working with global companies
-                and startups on new ventures and prototypes. Across all of
-                these, my philosophy of modularity has remained the same for
-                both projects and workflow. Taking it one feature at a time and
-                ensuring they are testable independently.
-              </p>
+        <div
+          ref={containerRef}
+          className={styles.non__hero__section}
+          style={{
+            transition: "background-color 0.3s linear",
+          }}
+        >
+          <section className={styles.completed__features__section}>
+            <div className={styles.features__section}>
+              <div className={styles.project__exec}>
+                <Heading as="h2" className={styles.h2__heading}>
+                  /completed_features
+                </Heading>
+                <Heading as="h3" className={styles.h3__heading}>
+                  Modularity as a philosophy in programming, code
+                  implementation, workflow execution at all level.
+                </Heading>
+                <p>
+                  For over seven years, I've been collaborating on projects
+                  ranging from design to development working with global
+                  companies and startups on new ventures and prototypes. Across
+                  all of these, my philosophy of modularity has remained the
+                  same for both projects and workflow. Taking it one feature at
+                  a time and ensuring they are testable independently.
+                </p>
+              </div>
             </div>
-          </div>
-          <section
-            role="group"
-            aria-label="List of business requirements and how they were solved"
-            aria-roledescription="carousel"
-            id="multiCarousel"
-          >
-            <div aria-atomic="false" aria-live="off" id="carouselInner">
-              <Swiper
-                autoplay={{
-                  delay: 2000,
-                  disableOnInteraction: false,
-                  pauseOnMouseEnter: true,
-                }}
-                loop={true}
-                slidesPerView={1}
-                modules={[Autoplay, FreeMode]}
-                breakpoints={breakpoints}
-                grabCursor={true}
-              >
-                {cards.map((cardEl, idx) => {
-                  const cardWithIdx = {
-                    index: idx,
-                    groupLength: cards.length,
-                    ...cardEl,
-                  };
-                  return (
-                    <SwiperSlide key={idx}>
-                      <Card cardEl={cardWithIdx} />
-                    </SwiperSlide>
-                  );
-                })}
-              </Swiper>
-            </div>
+            <section
+              role="group"
+              aria-label="List of business requirements and how they were solved"
+              aria-roledescription="carousel"
+              id="multiCarousel"
+            >
+              <div aria-atomic="false" aria-live="off" id="carouselInner">
+                <Swiper
+                  autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                  }}
+                  loop={true}
+                  slidesPerView={1}
+                  modules={[Autoplay, FreeMode]}
+                  breakpoints={breakpoints}
+                  grabCursor={true}
+                >
+                  {cards.map((cardEl, idx) => {
+                    const cardWithIdx = {
+                      index: idx,
+                      groupLength: cards.length,
+                      ...cardEl,
+                    };
+                    return (
+                      <SwiperSlide key={idx}>
+                        <Card cardEl={cardWithIdx} />
+                      </SwiperSlide>
+                    );
+                  })}
+                </Swiper>
+              </div>
+            </section>
           </section>
-        </section>
-        <div className={`${styles.partners__workxp}`} ref={workXpRef}>
-          <div
-            className={styles.partner__info__wrapper}
-            ref={pinRef}
-            onMouseOver={handleMouseBgOver}
-            onMouseMove={handleMouseBgTravel}
-            // onMouseLeave={handleMouseBgleave}
-          >
-            <div className={styles.social__wrapper}>
-              {contacts.map(({ url, logoUrl }, idx) => (
-                <Link key={idx} to={url}>
-                  <img src={logoUrl} alt={`Visit ${url}`} width={34} />
-                </Link>
-              ))}
-              <div className={styles.base__line}></div>
-            </div>
-            <div className={styles.partners__xp_info}>
-              I have worked in various industries over the past 7 years. From
-              IOT to Artifical Intelligent to Insurance. Doesn't matter the
-              industry or niche, I am always excited about the adventure that
-              lies there.
-            </div>
-
-            <div className={styles.role__desc}>
-              <div ref={hoverBlurRef} className={styles.hover__blur}></div>
-              <div>
-                {jobXp.map((xp, idx) => (
-                  <div
-                    key={idx}
-                    className={`slide ${styles.slides__wrapper}`}
-                    style={{ top: `${45 + idx * 2}%` }}
-                  >
-                    {xp.isSlide ? (
-                      <CodeSnippets />
-                    ) : (
-                      <LargeCard cardEl={{ ...xp, idx: idx }} />
-                    )}
-                    <div className={styles.work__tech__title}>{xp.tag}</div>
-                  </div>
+          <div className={`${styles.partners__workxp}`} ref={workXpRef}>
+            <div
+              className={styles.partner__info__wrapper}
+              ref={pinRef}
+              onMouseOver={handleMouseBgOver}
+              onMouseMove={handleMouseBgTravel}
+              // onMouseLeave={handleMouseBgleave}
+            >
+              <div className={styles.social__wrapper}>
+                {contacts.map(({ url, logoUrl }, idx) => (
+                  <CustomLink key={idx} to={url}>
+                    <img src={logoUrl} alt={`Visit ${url}`} width={34} />
+                  </CustomLink>
                 ))}
-                <div
-                  className={`${styles.timeline__wrapper}`}
-                  ref={timelineRef}
-                ></div>
+                <div className={styles.base__line}></div>
+              </div>
+              <div className={styles.partners__xp_info}>
+                I have worked in various industries over the past 7 years. From
+                IOT to Artifical Intelligent to Insurance. Doesn't matter the
+                industry or niche, I am always excited about the adventure that
+                lies there.
+              </div>
+
+              <div className={styles.role__desc}>
+                <div ref={hoverBlurRef} className={styles.hover__blur}></div>
+                <div>
+                  {jobXp.map((xp, idx) => (
+                    <div
+                      key={idx}
+                      className={`slide ${styles.slides__wrapper}`}
+                      style={{ top: `${45 + idx * 2}%` }}
+                    >
+                      {xp.isSlide ? (
+                        <CodeSnippets />
+                      ) : (
+                        <LargeCard cardEl={{ ...xp, idx: idx }} />
+                      )}
+                      <div className={styles.work__tech__title}>{xp.tag}</div>
+                    </div>
+                  ))}
+                  <div
+                    className={`${styles.timeline__wrapper}`}
+                    ref={timelineRef}
+                  ></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div ref={extraRef} className={styles.extra__space}></div>
-
-        <div
-          ref={extraRef}
-          className={`${styles.container__wrapper} ${styles.extra__space}`}
-        >
-          <h2 className={styles.philosophy__title}>
-            /My working philosophy as a Software Engineer
-          </h2>
-          <p className={styles.philosophy__body}>
-            Understanding the primary concept and fundamentals and not the
-            tools. Now, migrating to and adopting whatever tool becomes
-            efficiently done and quite easy.
-          </p>
-          <LinkBtn to={"https://medium.com/@charles-ikulayo"} isExternalLink>
-            Explore Blog Overview
-          </LinkBtn>
-          {/* <div className={styles.divider__}></div> */}
-          {/* <div className={styles.blog__section__wrapper}>
+          <div
+            ref={extraRef}
+            className={`${styles.container__wrapper} ${styles.extra__space}`}
+          >
+            <h2 className={styles.philosophy__title}>
+              /My working philosophy as a Software Engineer
+            </h2>
+            <p className={styles.philosophy__body} ref={splitTextRef}>
+              Understanding the primary concept and fundamentals and not the
+              tools. Now, migrating to and adopting whatever tool becomes
+              efficiently done and quite easy.
+            </p>
+            <LinkBtn to={"https://medium.com/@charles-ikulayo"} isExternalLink>
+              Explore Blog Overview
+            </LinkBtn>
+            {/* <div className={styles.divider__}></div> */}
+            {/* <div className={styles.blog__section__wrapper}>
             {blogPosts.map((blog, idx) => (
               <div key={idx} className={styles[blog.classname]}>
                 <BlogCard cardEl={blog} />
               </div>
             ))}
           </div> */}
-          <div className={styles.blog__section__wrapper}>
-            <Swiper
-              autoplay={{
-                delay: 2000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              slidesPerView={1}
-              loop={true}
-              modules={[FreeMode]}
-              breakpoints={breakpoints}
-              grabCursor={true}
-            >
-              {blogPosts.map((blog, idx) => (
-                <SwiperSlide key={idx}>
-                  <BlogCard cardEl={blog} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-          {/* <div className={styles.fundamental__phi}>
+            <div className={styles.blog__section__wrapper}>
+              <Swiper
+                autoplay={{
+                  delay: 2000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }}
+                slidesPerView={1}
+                loop={true}
+                modules={[FreeMode]}
+                breakpoints={{
+                  720: {
+                    slidesPerView: 2,
+                  },
+                  1100: {
+                    slidesPerView: 3,
+                  },
+                  1420: {
+                    slidesPerView: 4,
+                  },
+                  1920: {
+                    slidesPerView: 5,
+                  },
+                }}
+                grabCursor={true}
+              >
+                {blogPosts.map((blog, idx) => (
+                  <SwiperSlide key={idx}>
+                    <BlogCard cardEl={blog} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+            {/* <div className={styles.fundamental__phi}>
             {philosophy.map((card, idx) => (
               <div key={idx}>
                 <SmallCard cardEl={card} />
               </div>
             ))}
           </div> */}
+          </div>
         </div>
       </PageWrapper>
     </div>
