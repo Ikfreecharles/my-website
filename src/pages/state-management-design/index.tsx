@@ -4,15 +4,13 @@ import React, { ReactNode } from "react";
 
 export default function StateManagementDesign(): ReactNode {
   return (
-    <PageWrapper>
-      <Feature
-        title="Application state management design and architecture for a stateless end to end application in double environment product"
-        sections={featuredPost}
-      />
+    <PageWrapper customTitle={title} customDescription={featuredPost[0].body}>
+      <Feature title={title} sections={featuredPost} />
     </PageWrapper>
   );
 }
-
+const title =
+  "Application state management design and architecture for a stateless end to end application in double environment product";
 const featuredPost = [
   {
     heading: "Problem highlights/Requirements",

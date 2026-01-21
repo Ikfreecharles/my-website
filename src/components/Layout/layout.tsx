@@ -6,8 +6,14 @@ import Link from "@docusaurus/Link";
 
 interface Props {
   children: React.ReactNode;
+  customTitle?: string;
+  customDescription?: string;
 }
-export default function PageWrapper({ children }: Props) {
+export default function PageWrapper({
+  children,
+  customTitle,
+  customDescription,
+}: Props) {
   const { siteConfig } = useDocusaurusContext();
   const { title, tagline } = siteConfig;
   const [isRevealed, setIsRevealed] = useState(false);
@@ -17,7 +23,10 @@ export default function PageWrapper({ children }: Props) {
   }, []);
 
   return (
-    <Layout title={title} description={tagline}>
+    <Layout
+      title={customTitle || title}
+      description={customDescription || tagline}
+    >
       <>{children}</>
       <div className={styles.footer__inner}>
         <div className={styles.reveal__outer}>

@@ -8,7 +8,7 @@ const config: Config = {
   title: "Charles Ikulayo - Software Engineer x Solutions Architect",
   tagline:
     "Charles Ikulayo is a seasoned Senior software engineer with 7 years working experience from design to development. Now I'm marching forward into management and architecting as a Solutions Architect to design and develop robust software designs and solutions.",
-  favicon: "img/favicon/favicon.ico",
+  favicon: "/img/favicon/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -60,7 +60,7 @@ const config: Config = {
           {
             tagName: "meta",
             name: "theme-color",
-            content: "rgb(37, 194, 160)",
+            content: "rgb(7, 15, 32)",
           },
           {
             tagName: "meta",
@@ -88,6 +88,7 @@ const config: Config = {
       },
     ],
   ],
+
   headTags: [
     {
       tagName: "link",
@@ -152,7 +153,7 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/IKfreecharles",
+          editUrl: "https://github.com/Ikfreecharles",
         },
         blog: {
           showReadingTime: true,
@@ -211,6 +212,12 @@ const config: Config = {
         {
           to: "https://charlesikulayo.dev/blog",
           label: "Blog",
+          position: "right",
+          className: "navbar__",
+        },
+        {
+          href: "https://medium.com/@charles-ikulayo",
+          label: "Medium",
           position: "right",
           className: "navbar__",
         },

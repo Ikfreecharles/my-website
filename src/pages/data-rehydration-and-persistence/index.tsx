@@ -5,15 +5,14 @@ import { Feature } from "@site/src/components/Feature/feature";
 
 export default function DataRehydrationAndPersistence(): ReactNode {
   return (
-    <PageWrapper>
-      <Feature
-        title="Data Rehydration, Consistency, and Persistence Across Multiple App Instances in a Portal"
-        sections={featuredPost}
-      />
+    <PageWrapper customTitle={title} customDescription={featuredPost[0].body}>
+      <Feature title={title} sections={featuredPost} />
     </PageWrapper>
   );
 }
 
+const title =
+  "Data Rehydration, Consistency, and Persistence Across Multiple App Instances in a Portal";
 const featuredPost = [
   {
     heading: "Product Requirements and Problem Statement",
