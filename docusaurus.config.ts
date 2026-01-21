@@ -88,7 +88,6 @@ const config: Config = {
       },
     ],
   ],
-
   headTags: [
     {
       tagName: "link",
