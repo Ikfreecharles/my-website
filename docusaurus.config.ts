@@ -8,7 +8,7 @@ const config: Config = {
   title: "Charles Ikulayo - Software Engineer x Solutions Architect",
   tagline:
     "Charles Ikulayo is a seasoned Senior software engineer with 7 years working experience from design to development. Now I'm marching forward into management and architecting as a Solutions Architect to design and develop robust software designs and solutions.",
-  favicon: "/img/favicon/favicon.ico",
+  favicon: "/img/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -77,6 +77,16 @@ const config: Config = {
             rel: "apple-touch-icon",
             href: "/img/favicon/apple-touch-icon.png",
           },
+          {
+            tagName: "meta",
+            name: "apple-mobile-web-app-title",
+            content: "Ikulayo",
+          },
+          {
+            tagName: "meta",
+            name: "apple-mobile-web-app-capable",
+            content: "yes",
+          },
         ],
       },
     ],
@@ -95,6 +105,13 @@ const config: Config = {
       attributes: {
         rel: "preconnect",
         href: "https://www.charlesikulayo.dev",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        rel: "icon",
+        href: "/img/favicon/favicon-32x32.png",
       },
     },
     {
